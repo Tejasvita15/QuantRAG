@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+
+# Raw / generated data
+data/raw/
+data/processed/
+
+# Generated indexes
+indexes/
+
+# Evaluation outputs
+eval/five_query_results.json
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
