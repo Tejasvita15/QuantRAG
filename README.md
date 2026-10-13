@@ -177,6 +177,12 @@ Supported aliases:
 
 You can also pass any FRED series ID.
 
+Or through the query router:
+
+```bash
+python src/query.py "What is the current inflation rate?"
+```
+
 ## 9. Current/recent stocks
 
 ```bash
@@ -186,7 +192,46 @@ python src/live/stock_tool.py NVDA
 
 Returns latest available trading price, previous close, 1-day return, 5-day return, volume and market cap when available.
 
-## 10. What is already covered for AI6127 retrieval
+Or through the query router:
+
+```bash
+python src/query.py "How is Apple's stock doing?"
+```
+
+## 10. Query routing (corpus + live data)
+
+`src/query.py` routes a natural-language query to one of three backends:
+
+| Route | Trigger | Backend |
+|-------|---------|---------|
+| `stock` | company/ticker plus price/stock/share/trading/quote/market-cap keyword | `src/live/stock_tool.py` (yfinance) |
+| `macro` | macro keyword: cpi/inflation, unemployment, fed funds/interest rate, gdp, treasury/10-year yield | `src/live/fred_tool.py` (FRED) |
+| `filing` | anything else (company/ticker questions go to the SEC corpus) | `src/retriever.py` (hybrid + rerank) |
+
+```bash
+python src/query.py "How is Apple's stock doing?"
+python src/query.py "What is the current inflation rate?"
+python src/query.py "What risks does Apple identify related to supply chain disruption?"
+```
+
+The route can be forced with `--type stock|macro|filing`, and missing
+arguments can be supplied with `--ticker` or `--series`:
+
+```bash
+python src/query.py "current price" --type stock --ticker NVDA
+python src/query.py "10-year yield" --type macro --series treasury_10y
+python src/query.py "supply chain risks" --type filing --ticker AAPL --top-k 5
+```
+
+CLI options: `--type`, `--ticker`, `--series`, `--year`, `--form`,
+`--top-k`, `--no-rerank`. Output is a JSON object with `query`, `route`,
+`latency_s` and `result`; errors are printed as JSON with exit code 1.
+
+Routing rules live in `src/query_router.py` (company-name and ticker
+detection plus macro-keyword mapping) and can be replaced later by an
+LLM function-calling router without touching the rest of the pipeline.
+
+## 11. What is already covered for AI6127 retrieval
 
 ### Corpus
 - real source: SEC EDGAR
@@ -207,6 +252,7 @@ Returns latest available trading price, previous close, 1-day return, 5-day retu
 - metadata/timeline filtering
 
 ### Querying/evaluation
+- rule-based query routing across corpus / FRED / stock
 - five sample queries
 - query latency
 - P@K
@@ -219,10 +265,11 @@ Returns latest available trading price, previous close, 1-day return, 5-day retu
 - FRED macro observations
 - recent/current stock market data
 
-## 11. What is NOT Step 1
+## 12. What is NOT Step 1
 
 These are downstream tasks and should be added after retrieval works:
 - LLM answer generation
+- LLM function-calling routing (rule-based routing is implemented)
 - RAGAS faithfulness / answer relevance
 - final Streamlit UI
 - 1,000-record manual held-out annotation completion

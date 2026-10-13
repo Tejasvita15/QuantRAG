@@ -1,6 +1,24 @@
+"""Live stock-market tool: snapshot of current/recent trading data.
+
+Uses yfinance. Standalone usage:
+    python src/live/stock_tool.py AAPL
+"""
+
 import yfinance as yf
 
 def get_stock_snapshot(ticker):
+    """Fetch the latest trading snapshot for one ticker.
+
+    Input:
+        ticker (str): ticker symbol, case-insensitive, e.g. "AAPL".
+
+    Output:
+        dict: latest trading date, price, previous close, 1-day and 5-day
+        returns (percent), volume, market cap and currency.
+
+    Raises:
+        RuntimeError: no market data returned for the ticker.
+    """
     ticker = ticker.upper()
     t = yf.Ticker(ticker)
     hist = t.history(period="1mo", interval="1d", auto_adjust=True)
