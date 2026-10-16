@@ -4,7 +4,10 @@ import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
-from common import INDEX_BM25, INDEX_DENSE, load_jsonl, load_config
+if __package__:
+    from .common import INDEX_BM25, INDEX_DENSE, load_jsonl, load_config
+else:
+    from common import INDEX_BM25, INDEX_DENSE, load_jsonl, load_config
 
 def tokenize(text):
     return re.findall(r"[A-Za-z0-9$%.'-]+", text.lower())
