@@ -1,6 +1,6 @@
-# QuantRAG — Step 1: Knowledge Base + Retrieval
+# QuantRAG — Retrieval and Grounded Financial QA
 
-This repository implements the retrieval portion of the AI6127 QuantRAG project:
+This repository implements SEC retrieval, live-data routing and evidence-grounded answer generation for the AI6127 QuantRAG project:
 
 - SEC EDGAR 10-K ingestion
 - HTML cleaning and table-preserving text extraction
@@ -15,6 +15,8 @@ This repository implements the retrieval portion of the AI6127 QuantRAG project:
 - Precision@K, Recall@K, MRR and nDCG evaluation
 - FRED live macro tool
 - current/recent stock-market tool using yfinance
+- composable SEC / stock / macro query routing
+- LLM answers with validated source IDs, dates and inspectable citations
 
 ## 1. Create environment
 
@@ -44,7 +46,7 @@ SEC_USER_AGENT="NTU AI6127 QuantRAG your_real_email@ntu.edu.sg"
 FRED_API_KEY="your_fred_key"
 ```
 
-SEC requires automated clients to identify themselves. FRED requires a registered API key.
+SEC requires automated clients to identify themselves. FRED requires a registered API key. Answer generation also requires `LLM_MODEL` and `LLM_API_KEY` (or `OPENAI_API_KEY`). Set `LLM_BASE_URL` for another OpenAI-compatible Chat Completions provider. Retrieval and `--route-only` do not require LLM credentials.
 
 ## 3. Run the entire retrieval pipeline
 
@@ -200,38 +202,104 @@ python src/query.py "How is Apple's stock doing?"
 
 ## 10. Query routing (corpus + live data)
 
-`src/query.py` routes a natural-language query to one of three backends:
+`src/query_router.py` creates a route plan. Sources can be combined rather than
+choosing a single backend for every question.
 
-| Route | Trigger | Backend |
+| Route | Example | Sources |
 |-------|---------|---------|
-| `stock` | company/ticker plus price/stock/share/trading/quote/market-cap keyword | `src/live/stock_tool.py` (yfinance) |
-| `macro` | macro keyword: cpi/inflation, unemployment, fed funds/interest rate, gdp, treasury/10-year yield | `src/live/fred_tool.py` (FRED) |
-| `filing` | anything else (company/ticker questions go to the SEC corpus) | `src/retriever.py` (hybrid + rerank) |
+| `filing` | Microsoft cloud revenue in its 2024 10-K | SEC, inferred company/year/form filters |
+| `stock` | Latest Apple stock price | Stock snapshot |
+| `macro` | Current Fed Funds Rate | FRED observations |
+| `mixed` | Apple margin risks and latest stock price | SEC + stock |
+| `mixed` | JPMorgan interest-rate risks and latest Fed Funds Rate | SEC + FRED |
+| `mixed` | Apple risks, current stock price and current unemployment | SEC + stock + FRED |
+
+Historical filing discussion of interest rates, stock compensation or trading
+risks does not by itself request live data. Company names, configured tickers,
+explicit `$SYMBOL`s, multiple companies and multiple macro indicators are
+supported. Explicit flags override detected values. Missing stock tickers or
+macro indicators are returned as missing inputs; no symbol is guessed.
 
 ```bash
-python src/query.py "How is Apple's stock doing?"
-python src/query.py "What is the current inflation rate?"
-python src/query.py "What risks does Apple identify related to supply chain disruption?"
-```
+# Inspect routing without indexes, models, API keys or provider calls.
+python src/query.py "Apple risks and latest stock price" --route-only
 
-The route can be forced with `--type stock|macro|filing`, and missing
-arguments can be supplied with `--ticker` or `--series`:
-
-```bash
+# Retrieve evidence (the existing single-source result shape is retained).
 python src/query.py "current price" --type stock --ticker NVDA
 python src/query.py "10-year yield" --type macro --series treasury_10y
 python src/query.py "supply chain risks" --type filing --ticker AAPL --top-k 5
 ```
 
-CLI options: `--type`, `--ticker`, `--series`, `--year`, `--form`,
-`--top-k`, `--no-rerank`. Output is a JSON object with `query`, `route`,
-`latency_s` and `result`; errors are printed as JSON with exit code 1.
+Options: `--type auto|stock|macro|filing`, `--ticker`, `--series`, `--year`,
+`--form`, `--top-k`, `--no-rerank`, `--route-only`, `--answer`.
+`--year` means **filing-date year**, matching the existing retriever; it is not
+a fiscal-year filter. A single mentioned year/form can be inferred. Queries
+mentioning multiple years are left unfiltered for historical comparisons.
+`--top-k` applies per company. Routing remains deterministic and heuristic.
 
-Routing rules live in `src/query_router.py` (company-name and ticker
-detection plus macro-keyword mapping) and can be replaced later by an
-LLM function-calling router without touching the rest of the pipeline.
+## 11. Grounded LLM answers
 
-## 11. What is already covered for AI6127 retrieval
+Set the following in `.env` (see `.env.example`):
+
+```text
+LLM_MODEL="your-provider-model"
+LLM_API_KEY="your-key"
+LLM_BASE_URL="https://api.openai.com/v1"
+LLM_TIMEOUT_SECONDS="60"
+LLM_JSON_MODE="true"
+```
+
+`OPENAI_API_KEY` is accepted as a fallback. No model is hardcoded. The provider
+must support Chat Completions; set `LLM_JSON_MODE=false` if JSON object mode is
+unavailable. Output must still be valid JSON and pass local validation.
+
+```bash
+python src/query.py \
+  "What does Apple report about margin pressure, and what is its latest available stock price?" \
+  --answer
+
+python -m src.query \
+  "What interest-rate risks does JPMorgan discuss, and what is the latest Fed Funds Rate?" \
+  --answer
+```
+
+`src/rag_pipeline.py` gathers full ranked passages and requested live records.
+`src/generator.py` conditions the model on those records and requests structured
+claims with source IDs. The application validates those IDs and renders
+`[SEC1]`, `[STOCK1]` and `[FRED1]` next to each claim. Sources retain SEC passage
+IDs, accession/CIK, report/filing dates, stock trading dates, FRED observation
+dates, retrieval timestamps and provider URLs. SEC URLs lead to the filing
+index because the corpus does not store a primary-document URL.
+
+JSON output includes `answer`, `status`, `claims`, `citations`, `sources`,
+`evidence`, `routing`, `errors`, `timings_s`, `latency_s`, `model` and `usage`.
+`citations` contains the cited source records; `sources` contains the bounded
+context actually supplied to the model; `evidence` contains all collected
+records. Existing `query`, `route`, `latency_s` and `result` keys remain available
+without `--answer`. Mixed results are grouped by backend.
+
+- No evidence: return `insufficient_evidence` without a model call.
+- Some tools fail: keep available evidence and mark an otherwise answered result
+  `partial`, with explicit coverage limitations.
+- Invalid JSON, uncited claims, unknown source IDs or incomplete model output:
+  return `generation_error` and preserve evidence for inspection.
+- CLI exit code is 1 when no evidence is available, generation fails or inputs
+  are invalid; a usable partial answer exits 0. A model's valid abstention over
+  retrieved but irrelevant evidence also exits 0.
+
+Citation validation checks that references exist; it **does not prove semantic
+faithfulness**. The prompt requires supported claims, dated evidence, explicit
+calculations and refusal when the context is insufficient. Generation quality
+must still be evaluated with the team's manually labelled records. CPIAUCSL is
+an index level, not an inflation percentage. The current FRED tool lacks unit
+metadata and historical date-range selection. Stock prices come from adjusted
+daily bars, not guaranteed real-time quotes. These limits are included in the
+model's instructions/evidence; unavailable values must not be invented.
+
+See [module contracts and verification](docs/query_generation.md) for integration
+with a future Streamlit UI and the exact offline test scope.
+
+## 12. Implemented components
 
 ### Corpus
 - real source: SEC EDGAR
@@ -252,7 +320,8 @@ LLM function-calling router without touching the rest of the pipeline.
 - metadata/timeline filtering
 
 ### Querying/evaluation
-- rule-based query routing across corpus / FRED / stock
+- rule-based query routing across corpus / FRED / stock, including mixed questions
+- evidence-grounded generation with validated citations and graceful tool failure handling
 - five sample queries
 - query latency
 - P@K
@@ -265,11 +334,9 @@ LLM function-calling router without touching the rest of the pipeline.
 - FRED macro observations
 - recent/current stock market data
 
-## 12. What is NOT Step 1
+## 13. Remaining project work
 
-These are downstream tasks and should be added after retrieval works:
-- LLM answer generation
-- LLM function-calling routing (rule-based routing is implemented)
+These tasks are outside the query-routing/generation implementation:
 - RAGAS faithfulness / answer relevance
 - final Streamlit UI
 - 1,000-record manual held-out annotation completion
