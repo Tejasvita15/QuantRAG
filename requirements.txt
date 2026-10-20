@@ -1,0 +1,11 @@
+beautifulsoup4>=4.12
+faiss-cpu>=1.8
+numpy>=1.26
+pandas>=2.2
+python-dotenv>=1.0
+rank-bm25>=0.2.2
+requests>=2.31
+sentence-transformers>=3.0
+torch>=2.2
+tqdm>=4.66
+yfinance>=0.2.66

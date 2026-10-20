@@ -1,0 +1,212 @@
+[
+  {
+    "ticker": "AAPL",
+    "query": "What risks does Apple identify related to supply chain disruption?",
+    "latency_s": 4.243417123000654,
+    "results": [
+      {
+        "rank": 1,
+        "id": "AAPL_2025-10-31_10K_00019",
+        "filing_date": "2025-10-31",
+        "section": "UNKNOWN",
+        "text": "and contract manufacturers, are in locations that are prone to earthquakes and other natural disasters. Global climate change is resulting in certain types of natural disasters and extreme weather occurring more frequently or with more intense effects. In addition, the Company\u2019s and its suppliers\u2019 operations, retail stores and facilities are subject to the risk of interruption by fire, power shortages, nuclear power plant accidents and other industrial accidents, terrorist attacks and other hostile acts, ransomware and other cybersecurity attacks, labor disputes, public health issues and other"
+      },
+      {
+        "rank": 2,
+        "id": "AAPL_2021-10-29_10K_00021",
+        "filing_date": "2021-10-29",
+        "section": "UNKNOWN",
+        "text": "risks of industrial accidents at its suppliers and contract manufacturers. While the Company\u2019s suppliers are required to maintain safe working environments and operations, an industrial accident could occur and could result in disruption to the Company\u2019s business and harm to the Company\u2019s reputation. Major public health issues, including pandemics such as the COVID-19 pandemic, have adversely affected, and could in the future adversely affect, the Company due to their impact on the global economy and demand for consumer products; the imposition of protective public safety measures, such as str"
+      },
+      {
+        "rank": 3,
+        "id": "AAPL_2022-10-28_10K_00020",
+        "filing_date": "2022-10-28",
+        "section": "UNKNOWN",
+        "text": "and result in slowdowns and outages to the Company\u2019s service offerings. Following an interruption to its business, the Company can require substantial recovery time, experience significant expenditures to resume operations, and lose significant sales. Because the Company relies on single or limited sources for the supply and manufacture of many critical components, a business interruption affecting such sources would exacerbate any negative consequences to the Company. Apple Inc. | 2022 Form 10-K | 6 The Company\u2019s operations are also subject to the risks of industrial accidents at its supplier"
+      },
+      {
+        "rank": 4,
+        "id": "AAPL_2024-11-01_10K_00024",
+        "filing_date": "2024-11-01",
+        "section": "UNKNOWN",
+        "text": "demand and shortages of supply, which adversely affected the Company\u2019s ability to obtain sufficient quantities of components and products on commercially reasonable terms, or at all. Such disruptions could occur in the future. While the Company has entered into agreements for the supply of many components, there can be no assurance the Company will be able to extend or renew these agreements on similar terms, or at all. In addition, component suppliers may suffer from poor financial conditions, which can lead to business failure for the supplier or consolidation within a particular industry, f"
+      },
+      {
+        "rank": 5,
+        "id": "AAPL_2023-11-03_10K_00019",
+        "filing_date": "2023-11-03",
+        "section": "UNKNOWN",
+        "text": "injuries or loss of life, disruption to the Company\u2019s business, and harm to the Company\u2019s reputation. Major public health issues, including pandemics such as the COVID-19 pandemic, have adversely affected, and could in the future materially adversely affect, the Company due to their impact on the global economy and demand for consumer products; the imposition of protective public safety measures, such as stringent employee travel restrictions and limitations on freight services and the movement of products between regions; and disruptions in the Company\u2019s operations, supply chain and sales and"
+      }
+    ]
+  },
+  {
+    "ticker": "MSFT",
+    "query": "What factors affected Microsoft's cloud revenue growth?",
+    "latency_s": 4.023140249999415,
+    "results": [
+      {
+        "rank": 1,
+        "id": "MSFT_2025-07-30_10K_00077",
+        "filing_date": "2025-07-30",
+        "section": "ITEM 1A",
+        "text": "and cloud services revenue increased 23% driven by Azure and other cloud services revenue growth of 34%. \u2022 Windows OEM and Devices revenue increased 3%. \u2022 Xbox content and services revenue increased 16%. \u2022 Search and news advertising revenue excluding traffic acquisition costs increased 20%. Industry Trends and Opportunities Our industry is dynamic and highly competitive, with frequent changes in both technologies and business models. Each industry shift is an opportunity to conceive new products, new technologies, or new ideas that can further transform the industry and our business. At Micro"
+      },
+      {
+        "rank": 2,
+        "id": "MSFT_2022-07-28_10K_00095",
+        "filing_date": "2022-07-28",
+        "section": "UNKNOWN",
+        "text": "Revenue increased $30.2 billion or 18% driven by growth across each of our segments. Intelligent Cloud revenue increased driven by Azure and other cloud services. Productivity and Business Processes revenue increased driven by Office 365 Commercial and LinkedIn. More Personal Computing revenue increased driven by Search and news advertising and Windows. Cost of revenue increased $10.4 billion or 20% driven by growth in Microsoft Cloud. Gross margin increased $19.8 billion or 17% driven by growth across each of our segments. TABLE: | \u2022 | Gross margin percentage decreased slightly. Excluding the"
+      },
+      {
+        "rank": 3,
+        "id": "MSFT_2025-07-30_10K_00083",
+        "filing_date": "2025-07-30",
+        "section": "ITEM 1A",
+        "text": "by Microsoft 365 Commercial cloud. More Personal Computing revenue increased driven by Gaming and Search and news advertising. Cost of revenue increased $13.7 billion or 19% driven by growth in Microsoft Cloud. Gross margin increased $22.9 billion or 13% with growth across each of our segments. \u2022 Gross margin percentage decreased slightly driven by Intelligent Cloud, offset in part by More Personal Computing. \u2022 Microsoft Cloud gross margin percentage decreased to 69% driven by the impact of scaling our AI infrastructure, offset in part by efficiency gains in Azure. Operating expenses increased"
+      },
+      {
+        "rank": 4,
+        "id": "MSFT_2022-07-28_10K_00098",
+        "filing_date": "2022-07-28",
+        "section": "UNKNOWN",
+        "text": "points driven by improvement across all cloud services. TABLE: | \u2022 | Operating expenses increased $2.0 billion or 11% driven by investments in LinkedIn and cloud engineering. Gross margin and operating income both included an unfavorable foreign currency impact of 2%. Intelligent Cloud Revenue increased $15.2 billion or 25%. TABLE: | \u2022 | Server products and cloud services revenue increased $14.7 billion or 28% driven by Azure and other cloud services. Azure and other cloud services revenue grew 45% driven by growth in our consumption-based services. Server products revenue increased 5% driven "
+      },
+      {
+        "rank": 5,
+        "id": "MSFT_2025-07-30_10K_00086",
+        "filing_date": "2025-07-30",
+        "section": "ITEM 1A",
+        "text": "with growth across all lines of business. \u2022 Dynamics products and cloud services revenue increased $996 million or 15% driven by growth in Dynamics 365, offset in part by a decline in Dynamics on-premises products. Dynamics 365 revenue grew 19% with growth across all workloads. Operating income increased $10.1 billion or 17%. \u2022 Cost of revenue increased $2.8 billion or 14% driven by growth in Microsoft 365 Commercial cloud. \u2022 Gross margin increased $11.2 billion or 13% driven by growth in Microsoft 365 Commercial cloud. Gross margin percentage decreased slightly primarily driven by the impact "
+      }
+    ]
+  },
+  {
+    "ticker": "NVDA",
+    "query": "What risks does NVIDIA report related to export restrictions?",
+    "latency_s": 4.898084237999683,
+    "results": [
+      {
+        "rank": 1,
+        "id": "NVDA_2025-02-26_10K_00028",
+        "filing_date": "2025-02-26",
+        "section": "UNKNOWN",
+        "text": "China market, as well as other impacted markets, including the Middle East and countries designated \u201cTier 2\u201d by the AI Diffusion IFR. In addition to export controls, the USG may impose restrictions on the import and sale of products that incorporate technologies developed or manufactured in whole or in part in China. For example, the USG is considering restrictions on the import and sale of certain automotive products in the United States, which if adopted and interpreted broadly, could impact our ability to develop and supply solutions for our automotive customers. While we work to enhance th"
+      },
+      {
+        "rank": 2,
+        "id": "NVDA_2024-02-21_10K_00026",
+        "filing_date": "2024-02-21",
+        "section": "UNKNOWN",
+        "text": "sell our inventory of such products and may be unable to develop replacement products not subject to the licensing requirements, effectively excluding us from all or part of the China market, as well as other impacted markets, including the Middle East. While we work to enhance the resiliency and redundancy of our supply chain, which is currently concentrated in the Asia-Pacific region, new and existing export controls or changes to existing export controls could limit alternative manufacturing locations and negatively impact our business. Refer to \u201cItem 1A. Risk Factors \u2013 Risks Related to Reg"
+      },
+      {
+        "rank": 3,
+        "id": "NVDA_2024-02-21_10K_00075",
+        "filing_date": "2024-02-21",
+        "section": "UNKNOWN",
+        "text": "USG has already imposed export controls restricting certain gaming GPUs, and if the USG expands such controls to restrict additional gaming products, it may disrupt a significant portion of our supply and distribution chain and negatively impact sales of such products to markets outside China, including the U.S. and Europe. Export controls may disrupt our supply and distribution chain for a substantial portion of our products, which are warehoused in and distributed from Hong Kong. Export controls restricting our ability to sell datacenter GPUs may also negatively impact demand for our network"
+      },
+      {
+        "rank": 4,
+        "id": "NVDA_2025-02-26_10K_00079",
+        "filing_date": "2025-02-26",
+        "section": "UNKNOWN",
+        "text": "already encouraged and may in the future encourage overseas governments to request that our customers purchase from our competitors rather than NVIDIA or other U.S. firms, harming our business, market position, and financial results. As a result, excessive or shifting export controls may negatively impact demand for our products and services not only in China, but also in other markets, such as Europe, Latin America, and Southeast Asia. Excessive or shifting export controls increase the risk of investing in U.S. advanced semiconductor products, because by the time a new product is ready for ma"
+      },
+      {
+        "rank": 5,
+        "id": "NVDA_2023-02-24_10K_00066",
+        "filing_date": "2023-02-24",
+        "section": "UNKNOWN",
+        "text": "financial results. Export controls targeting GPUs and semiconductors associated with AI, which are increasingly likely, would restrict our ability to export our technology, products, or services even though competitors may not be subject to similar restrictions, creating a competitive disadvantage for us and 28 Table of Contents negatively impacting our business and financial results. Increasing use of economic sanctions may also impact demand for our products or services, negatively impacting our business and financial results. Additional unilateral or multilateral controls are also likely to"
+      }
+    ]
+  },
+  {
+    "ticker": "AMZN",
+    "query": "What factors drove AWS cloud revenue growth?",
+    "latency_s": 4.115886210000099,
+    "results": [
+      {
+        "rank": 1,
+        "id": "AMZN_2023-02-03_10K_00055",
+        "filing_date": "2023-02-03",
+        "section": "ITEM 7",
+        "text": "of operations that are difficult to isolate and quantify. These factors contributed to increases in our operating costs during 2022, particularly across our North America and International segments, primarily due to a return to more normal, seasonal demand volumes in relation to our fulfillment network fixed costs, increased transportation and utility costs, and increased wage rates. In addition, rising fuel, utility, and food costs, rising interest rates, and recessionary fears may impact customer demand and our ability to forecast consumer spending patterns. We also expect the current macroe"
+      },
+      {
+        "rank": 2,
+        "id": "AMZN_2024-02-02_10K_00061",
+        "filing_date": "2024-02-02",
+        "section": "ITEM 1A",
+        "text": "24 Table of Contents AWS sales increased 13% in 2023, compared to the prior year. The sales growth primarily reflects increased customer usage, partially offset by pricing changes, primarily driven by long-term customer contracts. Operating Income (Loss) Operating income (loss) by segment is as follows (in millions): TABLE: | | | | | | | | | | | | Year Ended December 31, | 2022 | | 2023 Operating Income (Loss) | | | North America | $ | (2,847) | | | $ | 14,877 | International | (7,746) | | | (2,656) | AWS | 22,841 | | | 24,631 | Consolidated | $ | 12,248 | | | $ | 36,852 | Operating income was"
+      },
+      {
+        "rank": 3,
+        "id": "AMZN_2024-02-02_10K_00059",
+        "filing_date": "2024-02-02",
+        "section": "ITEM 5",
+        "text": "volatility, which, along with any increases in our borrowing levels, could increase our future borrowing costs. 23 Table of Contents Results of Operations We have organized our operations into three segments: North America, International, and AWS. These segments reflect the way the Company evaluates its business performance and manages its operations. See Item 8 of Part II, \u201cFinancial Statements and Supplementary Data \u2014 Note 10 \u2014 Segment Information.\u201d Overview Macroeconomic factors, including inflation, increased interest rates, significant capital market and supply chain volatility, and globa"
+      },
+      {
+        "rank": 4,
+        "id": "AMZN_2021-02-03_10K_00057",
+        "filing_date": "2021-02-03",
+        "section": "UNKNOWN",
+        "text": "supply chain constraints. Changes in foreign currency exchange rates impacted International net sales by $(2.4) billion and $1.7 billion in 2019 and 2020. AWS sales increased 30% in 2020, compared to the prior year. The sales growth primarily reflects increased customer usage, partially offset by pricing changes. Pricing changes were driven largely by our continued efforts to reduce prices for our customers. 25 Table of Contents Operating Income (Loss) Operating income (loss) by segment is as follows (in millions): TABLE: | | | | | | | | | | | | Year Ended December 31, | 2019 | | 2020 Operatin"
+      },
+      {
+        "rank": 5,
+        "id": "AMZN_2023-02-03_10K_00056",
+        "filing_date": "2023-02-03",
+        "section": "ITEM 1A",
+        "text": "Growth, excluding the effect of foreign exchange rates: | | | North America | 18 | % | | 13 | % International | 20 | | | 4 | AWS | 37 | | | 29 | Consolidated | 21 | | | 13 | Net sales mix: | | | North America | 60 | % | | 61 | % International | 27 | | | 23 | AWS | 13 | | | 16 | Consolidated | 100 | % | | 100 | % Sales increased 9% in 2022, compared to the prior year. Changes in foreign currency exchange rates reduced net sales by $15.5 billion in 2022. For a discussion of the effect of foreign exchange rates on sales growth, see \u201cEffect of Foreign Exchange Rates\u201d below. North America sales inc"
+      }
+    ]
+  },
+  {
+    "ticker": "GOOGL",
+    "query": "What risks does Alphabet report regarding advertising revenue?",
+    "latency_s": 4.761854962000143,
+    "results": [
+      {
+        "rank": 1,
+        "id": "GOOGL_2024-01-31_10K_00029",
+        "filing_date": "2024-01-31",
+        "section": "UNKNOWN",
+        "text": "under the heading \"Governance.\" The content of our websites are not incorporated by reference into this Annual Report on Form 10-K or in any other report or document we file with the SEC, and any references to our websites are intended to be inactive textual references only. 10. TABLE: | | | | | Table of Contents | Alphabet Inc. ITEM 1A. RISK FACTORS Our operations and financial results are subject to various risks and uncertainties, including but not limited to those described below, which could harm our business, reputation, financial condition, and operating results, and affect the trading "
+      },
+      {
+        "rank": 2,
+        "id": "GOOGL_2025-02-05_10K_00028",
+        "filing_date": "2025-02-05",
+        "section": "UNKNOWN",
+        "text": "available on our investor relations website under the heading \"Governance.\" The information contained on, or that may be accessed through our websites or our executive officers' social media channels, is not incorporated by reference into this Annual Report on Form 10-K or in any other report or document we file with the SEC, and any references to our websites are intended to be inactive textual references only. ITEM 1A. RISK FACTORS Our operations and financial results are subject to various risks and uncertainties, including but not limited to those described below, which could harm our busi"
+      },
+      {
+        "rank": 3,
+        "id": "GOOGL_2024-01-31_10K_00077",
+        "filing_date": "2024-01-31",
+        "section": "UNKNOWN",
+        "text": "Report on Form 10-K. In addition to the long-term trends and their financial effect on our business discussed above, fluctuations in our revenues have been, and may continue to be, affected by a combination of general factors, including: \u2022 changes in foreign currency exchange rates; 30. TABLE: | | | | | Table of Contents | Alphabet Inc. \u2022 changes in pricing, such as those resulting from changes in fee structures, discounts, and customer incentives; \u2022 general economic conditions and various external dynamics, including geopolitical events, regulations, and other measures and their effect on adv"
+      },
+      {
+        "rank": 4,
+        "id": "GOOGL_2025-02-05_10K_00079",
+        "filing_date": "2025-02-05",
+        "section": "UNKNOWN",
+        "text": "cost of doing business may increase, our products and services may become less useful, our ability to pursue certain business practices or offer certain products or services may be limited, and we may need to change our business models and operations to comply with evolving regulatory and legal matters. For additional information, see Part I, Item 1A Risk Factors and Legal Matters in Note 10 of the Notes to Consolidated Financial Statements included in Item 8 of this Annual Report on Form 10-K. \u2022 Our employees are critical to our success and we expect to continue investing in them. Our employe"
+      },
+      {
+        "rank": 5,
+        "id": "GOOGL_2024-01-31_10K_00072",
+        "filing_date": "2024-01-31",
+        "section": "ITEM 3",
+        "text": "and the RDG Internet Composite Index *$100 invested on December 31, 2018, in stock or in index, including reinvestment of dividends. Copyright \u00a9 2024 S&P, a division of The McGraw-Hill Companies Inc. All rights reserved. ITEM 6. [Reserved] 28. TABLE: | | | | | Table of Contents | Alphabet Inc. ITEM 7. MANAGEMENT\u2019S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS Please read the following discussion and analysis of our financial condition and results of operations together with \u201cNote about Forward-Looking Statements,\u201d Part I, Item 1 \"Business,\" Part I, Item 1A \"Risk Fact"
+      }
+    ]
+  }
+]

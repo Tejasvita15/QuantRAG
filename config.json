@@ -1,0 +1,57 @@
+{
+  "sec": {
+    "tickers": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "GOOGL",
+      "META",
+      "TSLA",
+      "JPM",
+      "BAC",
+      "WMT",
+      "XOM",
+      "CVX",
+      "JNJ",
+      "PG",
+      "KO",
+      "PEP",
+      "COST",
+      "HD",
+      "DIS",
+      "NFLX",
+      "IBM",
+      "ORCL",
+      "INTC",
+      "AMD",
+      "CSCO",
+      "QCOM",
+      "GS",
+      "MS",
+      "V",
+      "MA"
+    ],
+    "forms": [
+      "10-K"
+    ],
+    "start_date": "2021-01-01",
+    "end_date": "2026-01-01",
+    "request_delay_seconds": 0.15
+  },
+  "chunking": {
+    "chunk_words": 350,
+    "overlap_words": 50,
+    "min_words": 80
+  },
+  "dense": {
+    "model": "BAAI/bge-base-en-v1.5",
+    "batch_size": 32
+  },
+  "retrieval": {
+    "candidate_k": 50,
+    "final_k": 10,
+    "rrf_k": 60,
+    "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  }
+}
