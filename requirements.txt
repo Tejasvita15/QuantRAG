@@ -9,3 +9,4 @@ sentence-transformers>=3.0
 torch>=2.2
 tqdm>=4.66
 yfinance>=0.2.66
+streamlit>=1.40,<2

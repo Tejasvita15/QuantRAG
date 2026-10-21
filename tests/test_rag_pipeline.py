@@ -3,9 +3,10 @@ import io
 import json
 import subprocess
 import sys
+import types
 import unittest
 from pathlib import Path
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from src.generator import Completion, GenerationError, GroundedGenerator
 from src.query import main
@@ -74,6 +75,28 @@ class PipelineTests(unittest.TestCase):
         self.stock.assert_not_called()
         self.macro.assert_not_called()
         self.assertEqual(out["route"], "filing")
+
+    def test_legacy_injected_retriever_does_not_need_mode_parameter(self):
+        class LegacyRetriever:
+            def retrieve(self, query, top_k=None, ticker=None, year=None, form=None, rerank=True):
+                return [filing()]
+
+        pipeline = RAGPipeline(retriever=LegacyRetriever())
+        out = pipeline.run("Apple risks", generate=False, rerank=False)
+        self.assertEqual(out["status"], "retrieved")
+
+    def test_lazy_retriever_is_reused_and_switches_are_forwarded_per_request(self):
+        # No model imports: stand in only for the constructor at the lazy seam.
+        module = types.ModuleType("src.retriever")
+        module.HybridRetriever = Mock(return_value=self.retriever)
+        pipeline = RAGPipeline()
+        with patch.dict(sys.modules, {"src.retriever": module}):
+            for rerank in (False, True, False):
+                out = pipeline.run("Apple risks", generate=False, rerank=rerank)
+                self.assertEqual(out["status"], "retrieved")
+                self.assertEqual(self.retriever.retrieve.call_args.kwargs["rerank"], rerank)
+        module.HybridRetriever.assert_called_once_with(use_reranker=False)
+        self.assertIs(pipeline.retriever, self.retriever)
 
     def test_multiple_companies_are_retrieved_separately(self):
         self.retriever.retrieve.side_effect = lambda query, **kw: [filing(kw["ticker"], kw["ticker"])]

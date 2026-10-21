@@ -48,6 +48,10 @@ FRED_API_KEY="your_fred_key"
 
 SEC requires automated clients to identify themselves. FRED requires a registered API key. Answer generation also requires `LLM_MODEL` and `LLM_API_KEY` (or `OPENAI_API_KEY`). Set `LLM_BASE_URL` for another OpenAI-compatible Chat Completions provider. Retrieval and `--route-only` do not require LLM credentials.
 
+The team should agree on the provider and model used for controlled experiments.
+Each member configures their own local credentials using `.env.example` and the
+instructions here; sharing secret API keys is not required.
+
 ## 3. Run the entire retrieval pipeline
 
 Linux/macOS:
@@ -297,7 +301,50 @@ daily bars, not guaranteed real-time quotes. These limits are included in the
 model's instructions/evidence; unavailable values must not be invented.
 
 See [module contracts and verification](docs/query_generation.md) for integration
-with a future Streamlit UI and the exact offline test scope.
+with the Streamlit UI and the exact offline test scope.
+
+## Streamlit UI and final experiments (tasks 7/8)
+
+```bash
+python -m streamlit run app.py --server.address 127.0.0.1
+```
+
+The default **Route only** mode needs no indexes, models or API keys. Choose
+**Retrieve evidence** or **Generate answer** to run the existing shared pipeline.
+The app displays routing, complete evidence, exact model context, citations,
+partial/failure states, latency and downloadable JSON. Generation may incur API
+charges; it only runs after an explicit submission.
+
+See [UI setup and acceptance checks](docs/streamlit.md),
+[four-variant retrieval ablation](docs/ablation.md),
+[answer study and manual scoring](docs/answer_study.md),
+[team handoff](docs/task7_8_handoff.md), and
+[report sections with pending result tables](docs/task7_8_report.md).
+The [local verification record](docs/validation_2026-10-21.md) records the 107
+passing software tests and explicitly separates them from real experimental results.
+
+```bash
+python -m src.run_ablation --file /path/to/retrieval_eval.jsonl --check-only
+python -m src.run_ablation --file /path/to/retrieval_eval.jsonl \
+  --output eval/runs/retrieval-final --top-k 10 --candidate-k 50 --repeats 3 --warmup 1
+python -m src.benchmark_queries --output eval/runs/five-queries.json
+python -m unittest discover -s tests -v
+```
+
+The five-query export now includes complete passage text, an enclosing
+`queries` list and run metadata; consumers of the older top-level list should
+read `payload["queries"]`. Previous experiment outputs are not overwritten.
+Generated run outputs under `eval/runs/`, `eval/experiments/` and `experiments/`
+are ignored by Git: archive/share the
+chosen results separately for the report. Code and mock tests alone are **not**
+final experimental results. Real runs require matching trusted corpus/index
+files, a valid held-out evaluation set, and credentials for requested providers.
+The FRED, stock, routing and grounded-generation components for tasks 3–6 were
+already present on `main`; setup, model/provider and FRED configuration guidance
+is available above, in `.env.example`, and in
+[the routing/generation documentation](docs/query_generation.md). The remaining
+dependencies are matching artifacts and each operator's local configuration,
+rather than missing implementations or an absence of setup instructions.
 
 ## 12. Implemented components
 
@@ -336,11 +383,14 @@ with a future Streamlit UI and the exact offline test scope.
 
 ## 13. Remaining project work
 
-These tasks are outside the query-routing/generation implementation:
-- RAGAS faithfulness / answer relevance
-- final Streamlit UI
-- 1,000-record manual held-out annotation completion
-- final generation ablations
+Implementation now includes the Streamlit integration and final-experiment
+tooling. The following require actual group artifacts and measurements:
+- trusted matching corpus/index files and real-provider UI acceptance
+- a balanced, deduplicated held-out evaluation set; 1,000 manual downstream
+  records and measured inter-annotator agreement of at least 80%
+- controlled real-data retrieval and answer-generation runs plus manual review
+- any additional matched controls needed to isolate generation innovations
+- measured final report tables, failure analysis, screenshots and submission packaging
 
 ## Suggested report wording
 
