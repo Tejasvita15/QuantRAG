@@ -1,0 +1,135 @@
+QUANTRAG MANUAL RETRIEVAL ANNOTATION GUIDE
+===========================================
+
+Each record consists of:
+
+    Query
+    +
+    One SEC filing passage
+
+
+LABEL 2 — DIRECTLY RELEVANT
+----------------------------
+
+The passage contains the evidence needed to answer
+the query.
+
+Examples:
+
+Query:
+What risks does NVIDIA report regarding export restrictions?
+
+Passage:
+Discusses export licensing restrictions and their
+impact on NVIDIA sales.
+
+Label:
+2
+
+
+LABEL 1 — PARTIALLY RELEVANT
+-----------------------------
+
+The passage is clearly useful for answering the
+query but does not provide the complete evidence.
+
+Example:
+
+Query:
+What factors affected Microsoft's cloud revenue growth?
+
+Passage:
+Discusses Azure demand but does not give the main
+revenue drivers requested by the question.
+
+Label:
+1
+
+
+LABEL 0 — IRRELEVANT
+--------------------
+
+The passage does not materially help answer the
+query.
+
+Keyword overlap alone does NOT make a passage
+relevant.
+
+Example:
+
+Query:
+What factors affected Microsoft's cloud revenue growth?
+
+Passage:
+Discusses Microsoft gaming revenue.
+
+Label:
+0
+
+
+NUMERICAL QUESTIONS
+-------------------
+
+Label 2:
+Passage contains the values/evidence necessary to
+perform the requested comparison/calculation.
+
+Label 1:
+Passage contains some but not all necessary values.
+
+Label 0:
+Passage does not provide useful quantitative
+evidence.
+
+
+IMPORTANT
+---------
+
+Do NOT use the retrieval rank or model score to
+decide the label.
+
+Judge only:
+
+    QUERY
+      vs
+    PASSAGE
+
+
+For overlap records, annotators must work
+independently.
+
+Do NOT discuss overlap labels before both people
+finish.
+
+
+ANNOTATION CALIBRATION
+----------------------
+
+Before the full annotation:
+
+1. All team members independently label the same
+   20 calibration records.
+
+2. Compare labels.
+
+3. Discuss disagreements.
+
+4. Finalize interpretation of labels 0 / 1 / 2.
+
+5. Start the main annotation only after calibration.
+
+
+TARGET
+------
+
+Final dataset:
+    1,000 unique query-passage records
+
+Agreement subset:
+    200 records labelled by a second annotator
+
+Total annotation decisions:
+    1,200
+
+Inter-annotator agreement target:
+    >= 80%

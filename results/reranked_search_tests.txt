@@ -1,0 +1,81 @@
+
+============================================================
+RERANKED QUERY 1 — Apple Supply Chain
+============================================================
+Model/index load: 21.282s
+Query latency:    0.465s
+==========================================================================================
+
+#1  AAPL | 10-K | 2025-10-31 | UNKNOWN
+id=AAPL_2025-10-31_10K_00019 sources=['bm25', 'dense'] rrf=0.03227 rerank=3.0582
+and contract manufacturers, are in locations that are prone to earthquakes and other natural disasters. Global climate change is resulting in certain types of natural disasters and extreme weather occurring more frequently or with more intense effects. In addition, the Company’s and its suppliers’ operations, retail stores and facilities are subject to the risk of interruption by fire, power shortages, nuclear power plant accidents and other industrial accidents, terrorist attacks and other hostile acts, ransomware and other cybersecurity attacks, labor disputes, public health issues and other events beyond the Company’s control. Such events can make it difficult or impossible for the Company to manufacture and deliver products to its customers, create delays and inefficiencies in the Company’s supply and manufacturing chain, result in slowdowns and outages to the Company’s service offer
+
+#2  AAPL | 10-K | 2021-10-29 | UNKNOWN
+id=AAPL_2021-10-29_10K_00021 sources=['bm25', 'dense'] rrf=0.03126 rerank=3.0498
+risks of industrial accidents at its suppliers and contract manufacturers. While the Company’s suppliers are required to maintain safe working environments and operations, an industrial accident could occur and could result in disruption to the Company’s business and harm to the Company’s reputation. Major public health issues, including pandemics such as the COVID-19 pandemic, have adversely affected, and could in the future adversely affect, the Company due to their impact on the global economy and demand for consumer products; the imposition of protective public safety measures, such as stringent employee travel restrictions and limitations on freight services and the movement of products between regions; and disruptions in the Company’s supply chain and sales and distribution channels, resulting in interruptions of the supply of current products and delays in production ramps of new 
+
+#3  AAPL | 10-K | 2022-10-28 | UNKNOWN
+id=AAPL_2022-10-28_10K_00020 sources=['bm25', 'dense'] rrf=0.03252 rerank=2.9913
+and result in slowdowns and outages to the Company’s service offerings. Following an interruption to its business, the Company can require substantial recovery time, experience significant expenditures to resume operations, and lose significant sales. Because the Company relies on single or limited sources for the supply and manufacture of many critical components, a business interruption affecting such sources would exacerbate any negative consequences to the Company. Apple Inc. | 2022 Form 10-K | 6 The Company’s operations are also subject to the risks of industrial accidents at its suppliers and contract manufacturers. While the Company’s suppliers are required to maintain safe working environments and operations, an industrial accident could occur and could result in serious injuries or loss of life, disruption to the Company’s business, and harm to the Company’s reputation. Major pu
+
+#4  AAPL | 10-K | 2024-11-01 | UNKNOWN
+id=AAPL_2024-11-01_10K_00024 sources=['bm25', 'dense'] rrf=0.02899 rerank=2.2940
+demand and shortages of supply, which adversely affected the Company’s ability to obtain sufficient quantities of components and products on commercially reasonable terms, or at all. Such disruptions could occur in the future. While the Company has entered into agreements for the supply of many components, there can be no assurance the Company will be able to extend or renew these agreements on similar terms, or at all. In addition, component suppliers may suffer from poor financial conditions, which can lead to business failure for the supplier or consolidation within a particular industry, further limiting the Company’s ability to obtain sufficient quantities of components on commercially reasonable terms, or at all. Therefore, the Company remains subject to significant risks of supply shortages and price increases that can materially adversely affect its business, results of operation
+
+#5  AAPL | 10-K | 2023-11-03 | UNKNOWN
+id=AAPL_2023-11-03_10K_00019 sources=['bm25', 'dense'] rrf=0.02626 rerank=1.7736
+injuries or loss of life, disruption to the Company’s business, and harm to the Company’s reputation. Major public health issues, including pandemics such as the COVID-19 pandemic, have adversely affected, and could in the future materially adversely affect, the Company due to their impact on the global economy and demand for consumer products; the imposition of protective public safety measures, such as stringent employee travel restrictions and limitations on freight services and the movement of products between regions; and disruptions in the Company’s operations, supply chain and sales and distribution channels, resulting in interruptions to the supply of current products and offering of existing services, and delays in production ramps of new products and development of new services. While the Company maintains insurance coverage for certain types of losses, such insurance coverage 
+
+============================================================
+RERANKED QUERY 2 — NVIDIA Export Restrictions
+============================================================
+Model/index load: 11.144s
+Query latency:    0.352s
+==========================================================================================
+
+#1  NVDA | 10-K | 2025-02-26 | UNKNOWN
+id=NVDA_2025-02-26_10K_00028 sources=['bm25', 'dense'] rrf=0.02715 rerank=3.5579
+China market, as well as other impacted markets, including the Middle East and countries designated “Tier 2” by the AI Diffusion IFR. In addition to export controls, the USG may impose restrictions on the import and sale of products that incorporate technologies developed or manufactured in whole or in part in China. For example, the USG is considering restrictions on the import and sale of certain automotive products in the United States, which if adopted and interpreted broadly, could impact our ability to develop and supply solutions for our automotive customers. While we work to enhance the resiliency and redundancy of our supply chain, which is currently concentrated in the Asia-Pacific region, new and existing export controls or changes to existing export controls could limit alternative manufacturing locations and negatively impact our business. Refer to “Item 1A. Risk Factors – R
+
+#2  NVDA | 10-K | 2024-02-21 | UNKNOWN
+id=NVDA_2024-02-21_10K_00026 sources=['bm25', 'dense'] rrf=0.03030 rerank=3.4673
+sell our inventory of such products and may be unable to develop replacement products not subject to the licensing requirements, effectively excluding us from all or part of the China market, as well as other impacted markets, including the Middle East. While we work to enhance the resiliency and redundancy of our supply chain, which is currently concentrated in the Asia-Pacific region, new and existing export controls or changes to existing export controls could limit alternative manufacturing locations and negatively impact our business. Refer to “Item 1A. Risk Factors – Risks Related to Regulatory, Legal, Our Stock and Other Matters” for a discussion of this potential impact. Compliance with laws, rules, and regulations has not otherwise had a material effect upon our capital expenditures, results of operations, or competitive position and we do not currently anticipate material capit
+
+#3  NVDA | 10-K | 2024-02-21 | UNKNOWN
+id=NVDA_2024-02-21_10K_00075 sources=['bm25', 'dense'] rrf=0.02649 rerank=3.2745
+USG has already imposed export controls restricting certain gaming GPUs, and if the USG expands such controls to restrict additional gaming products, it may disrupt a significant portion of our supply and distribution chain and negatively impact sales of such products to markets outside China, including the U.S. and Europe. Export controls may disrupt our supply and distribution chain for a substantial portion of our products, which are warehoused in and distributed from Hong Kong. Export controls restricting our ability to sell datacenter GPUs may also negatively impact demand for our networking products used in servers containing our GPUs. The USG may also impose export controls on our networking products, such as high-speed network interconnects, to limit the ability of downstream parties to create large clusters for frontier model training. Any new control that impacts a wider range 
+
+#4  NVDA | 10-K | 2023-02-24 | UNKNOWN
+id=NVDA_2023-02-24_10K_00066 sources=['bm25', 'dense'] rrf=0.02967 rerank=3.0000
+financial results. Export controls targeting GPUs and semiconductors associated with AI, which are increasingly likely, would restrict our ability to export our technology, products, or services even though competitors may not be subject to similar restrictions, creating a competitive disadvantage for us and 28 Table of Contents negatively impacting our business and financial results. Increasing use of economic sanctions may also impact demand for our products or services, negatively impacting our business and financial results. Additional unilateral or multilateral controls are also likely to include deemed export control limitations that negatively impact the ability of our research and development teams to execute our roadmap or other objectives in a timely manner. Additional export restrictions may not only impact our ability to serve overseas markets, but also provoke responses from
+
+#5  NVDA | 10-K | 2025-02-26 | UNKNOWN
+id=NVDA_2025-02-26_10K_00078 sources=['bm25', 'dense'] rrf=0.02715 rerank=2.9756
+example by imposing license conditions on the use of products to be exported to certain countries, and may impose additional conditions such as requiring chip tracking and throttling mechanisms that could disable or impair GPUs if certain events, including unauthorized system configuration, use, or location, are detected. The USG has already imposed export controls restricting certain gaming GPUs, and if the USG expands such controls to restrict additional gaming products, it may disrupt a significant portion of our supply and distribution chain and negatively impact sales of such products to markets outside China, including the U.S. and Europe. In addition, as the performance of the gaming GPUs increases over time, export controls may have a greater impact on our ability to compete in markets subject to those controls. Export controls may disrupt our supply and distribution chain for a 
+
+============================================================
+RERANKED QUERY 3 — Microsoft Cloud Revenue
+============================================================
+Model/index load: 11.223s
+Query latency:    0.307s
+==========================================================================================
+
+#1  MSFT | 10-K | 2025-07-30 | ITEM 1A
+id=MSFT_2025-07-30_10K_00077 sources=['bm25', 'dense'] rrf=0.02661 rerank=5.7321
+and cloud services revenue increased 23% driven by Azure and other cloud services revenue growth of 34%. • Windows OEM and Devices revenue increased 3%. • Xbox content and services revenue increased 16%. • Search and news advertising revenue excluding traffic acquisition costs increased 20%. Industry Trends and Opportunities Our industry is dynamic and highly competitive, with frequent changes in both technologies and business models. Each industry shift is an opportunity to conceive new products, new technologies, or new ideas that can further transform the industry and our business. At Microsoft, we push the boundaries of what is possible through a broad range of research and development activities that seek to identify and address the changing demands of customers and users, industry trends, and competitive forces. Microsoft and OpenAI maintain a long-term strategic partnership origin
+
+#2  MSFT | 10-K | 2022-07-28 | UNKNOWN
+id=MSFT_2022-07-28_10K_00095 sources=['bm25', 'dense'] rrf=0.02715 rerank=5.0693
+Revenue increased $30.2 billion or 18% driven by growth across each of our segments. Intelligent Cloud revenue increased driven by Azure and other cloud services. Productivity and Business Processes revenue increased driven by Office 365 Commercial and LinkedIn. More Personal Computing revenue increased driven by Search and news advertising and Windows. Cost of revenue increased $10.4 billion or 20% driven by growth in Microsoft Cloud. Gross margin increased $19.8 billion or 17% driven by growth across each of our segments. TABLE: | • | Gross margin percentage decreased slightly. Excluding the impact of the fiscal year 2021 change in accounting estimate for the useful lives of our server and network equipment, gross margin percentage increased 1 point driven by improvement in Productivity and Business Processes. TABLE: | • | Microsoft Cloud gross margin percentage decreased slightly to 7
+
+#3  MSFT | 10-K | 2025-07-30 | ITEM 1A
+id=MSFT_2025-07-30_10K_00083 sources=['bm25', 'dense'] rrf=0.02698 rerank=4.7722
+by Microsoft 365 Commercial cloud. More Personal Computing revenue increased driven by Gaming and Search and news advertising. Cost of revenue increased $13.7 billion or 19% driven by growth in Microsoft Cloud. Gross margin increased $22.9 billion or 13% with growth across each of our segments. • Gross margin percentage decreased slightly driven by Intelligent Cloud, offset in part by More Personal Computing. • Microsoft Cloud gross margin percentage decreased to 69% driven by the impact of scaling our AI infrastructure, offset in part by efficiency gains in Azure. Operating expenses increased $3.8 billion or 6% driven by investments in cloud and AI engineering and Gaming, including the impact of the Activision Blizzard acquisition. Operating income increased $19.1 billion or 17% with growth across each of our segments. 38 PART II Item 7 SEGMENT RESULTS OF OPERATIONS TABLE: | | | | | | |
+
+#4  MSFT | 10-K | 2022-07-28 | UNKNOWN
+id=MSFT_2022-07-28_10K_00098 sources=['bm25', 'dense'] rrf=0.02895 rerank=3.6140
+points driven by improvement across all cloud services. TABLE: | • | Operating expenses increased $2.0 billion or 11% driven by investments in LinkedIn and cloud engineering. Gross margin and operating income both included an unfavorable foreign currency impact of 2%. Intelligent Cloud Revenue increased $15.2 billion or 25%. TABLE: | • | Server products and cloud services revenue increased $14.7 billion or 28% driven by Azure and other cloud services. Azure and other cloud services revenue grew 45% driven by growth in our consumption-based services. Server products revenue increased 5% driven by hybrid solutions, including Windows Server and SQL Server running in multi-cloud environments. TABLE: | • | Enterprise Services revenue increased $464 million or 7% driven by growth in Enterprise Support Services. Operating income increased $6.6 billion or 25%. TABLE: | • | Gross margin increased
+
+#5  MSFT | 10-K | 2025-07-30 | ITEM 1A
+id=MSFT_2025-07-30_10K_00086 sources=['bm25', 'dense'] rrf=0.02947 rerank=3.5873
+with growth across all lines of business. • Dynamics products and cloud services revenue increased $996 million or 15% driven by growth in Dynamics 365, offset in part by a decline in Dynamics on-premises products. Dynamics 365 revenue grew 19% with growth across all workloads. Operating income increased $10.1 billion or 17%. • Cost of revenue increased $2.8 billion or 14% driven by growth in Microsoft 365 Commercial cloud. • Gross margin increased $11.2 billion or 13% driven by growth in Microsoft 365 Commercial cloud. Gross margin percentage decreased slightly primarily driven by the impact of scaling our AI infrastructure, offset in part by efficiency gains in Microsoft 365 Commercial cloud. • Operating expenses increased $1.1 billion or 4% driven by investments in cloud and AI engineering and commercial sales. 39 PART II Item 7 Intelligent Cloud Revenue increased $18.8 billion or 21%

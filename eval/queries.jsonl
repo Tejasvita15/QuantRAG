@@ -1,0 +1,100 @@
+{"query_id": "q001", "ticker": "AAPL", "category": "revenue_growth", "query": "What factors affected Apple's revenue growth?"}
+{"query_id": "q002", "ticker": "AAPL", "category": "risk", "query": "What major business risks does Apple identify in its annual filing?"}
+{"query_id": "q003", "ticker": "AAPL", "category": "profitability", "query": "What factors affected Apple's profitability or operating margin?"}
+{"query_id": "q004", "ticker": "AAPL", "category": "operations_strategy", "query": "What operational or strategic factors does Apple identify as important to its business performance?"}
+{"query_id": "q005", "ticker": "MSFT", "category": "revenue_growth", "query": "What factors affected Microsoft's revenue growth?"}
+{"query_id": "q006", "ticker": "MSFT", "category": "risk", "query": "What major business risks does Microsoft identify in its annual filing?"}
+{"query_id": "q007", "ticker": "MSFT", "category": "profitability", "query": "What factors affected Microsoft's profitability or operating margin?"}
+{"query_id": "q008", "ticker": "MSFT", "category": "operations_strategy", "query": "What operational or strategic factors does Microsoft identify as important to its business performance?"}
+{"query_id": "q009", "ticker": "NVDA", "category": "revenue_growth", "query": "What factors affected NVIDIA's revenue growth?"}
+{"query_id": "q010", "ticker": "NVDA", "category": "risk", "query": "What major business risks does NVIDIA identify in its annual filing?"}
+{"query_id": "q011", "ticker": "NVDA", "category": "profitability", "query": "What factors affected NVIDIA's profitability or operating margin?"}
+{"query_id": "q012", "ticker": "NVDA", "category": "operations_strategy", "query": "What operational or strategic factors does NVIDIA identify as important to its business performance?"}
+{"query_id": "q013", "ticker": "AMZN", "category": "revenue_growth", "query": "What factors affected Amazon's revenue growth?"}
+{"query_id": "q014", "ticker": "AMZN", "category": "risk", "query": "What major business risks does Amazon identify in its annual filing?"}
+{"query_id": "q015", "ticker": "AMZN", "category": "profitability", "query": "What factors affected Amazon's profitability or operating margin?"}
+{"query_id": "q016", "ticker": "AMZN", "category": "operations_strategy", "query": "What operational or strategic factors does Amazon identify as important to its business performance?"}
+{"query_id": "q017", "ticker": "GOOGL", "category": "revenue_growth", "query": "What factors affected Alphabet's revenue growth?"}
+{"query_id": "q018", "ticker": "GOOGL", "category": "risk", "query": "What major business risks does Alphabet identify in its annual filing?"}
+{"query_id": "q019", "ticker": "GOOGL", "category": "profitability", "query": "What factors affected Alphabet's profitability or operating margin?"}
+{"query_id": "q020", "ticker": "GOOGL", "category": "operations_strategy", "query": "What operational or strategic factors does Alphabet identify as important to its business performance?"}
+{"query_id": "q021", "ticker": "META", "category": "revenue_growth", "query": "What factors affected Meta's revenue growth?"}
+{"query_id": "q022", "ticker": "META", "category": "risk", "query": "What major business risks does Meta identify in its annual filing?"}
+{"query_id": "q023", "ticker": "META", "category": "profitability", "query": "What factors affected Meta's profitability or operating margin?"}
+{"query_id": "q024", "ticker": "META", "category": "operations_strategy", "query": "What operational or strategic factors does Meta identify as important to its business performance?"}
+{"query_id": "q025", "ticker": "TSLA", "category": "revenue_growth", "query": "What factors affected Tesla's revenue growth?"}
+{"query_id": "q026", "ticker": "TSLA", "category": "risk", "query": "What major business risks does Tesla identify in its annual filing?"}
+{"query_id": "q027", "ticker": "TSLA", "category": "profitability", "query": "What factors affected Tesla's profitability or operating margin?"}
+{"query_id": "q028", "ticker": "TSLA", "category": "operations_strategy", "query": "What operational or strategic factors does Tesla identify as important to its business performance?"}
+{"query_id": "q029", "ticker": "WMT", "category": "revenue_growth", "query": "What factors affected Walmart's revenue growth?"}
+{"query_id": "q030", "ticker": "WMT", "category": "risk", "query": "What major business risks does Walmart identify in its annual filing?"}
+{"query_id": "q031", "ticker": "WMT", "category": "profitability", "query": "What factors affected Walmart's profitability or operating margin?"}
+{"query_id": "q032", "ticker": "WMT", "category": "operations_strategy", "query": "What operational or strategic factors does Walmart identify as important to its business performance?"}
+{"query_id": "q033", "ticker": "CVX", "category": "revenue_growth", "query": "What factors affected Chevron's revenue growth?"}
+{"query_id": "q034", "ticker": "CVX", "category": "risk", "query": "What major business risks does Chevron identify in its annual filing?"}
+{"query_id": "q035", "ticker": "CVX", "category": "profitability", "query": "What factors affected Chevron's profitability or operating margin?"}
+{"query_id": "q036", "ticker": "CVX", "category": "operations_strategy", "query": "What operational or strategic factors does Chevron identify as important to its business performance?"}
+{"query_id": "q037", "ticker": "JNJ", "category": "revenue_growth", "query": "What factors affected Johnson & Johnson's revenue growth?"}
+{"query_id": "q038", "ticker": "JNJ", "category": "risk", "query": "What major business risks does Johnson & Johnson identify in its annual filing?"}
+{"query_id": "q039", "ticker": "JNJ", "category": "profitability", "query": "What factors affected Johnson & Johnson's profitability or operating margin?"}
+{"query_id": "q040", "ticker": "JNJ", "category": "operations_strategy", "query": "What operational or strategic factors does Johnson & Johnson identify as important to its business performance?"}
+{"query_id": "q041", "ticker": "PG", "category": "revenue_growth", "query": "What factors affected Procter & Gamble's revenue growth?"}
+{"query_id": "q042", "ticker": "PG", "category": "risk", "query": "What major business risks does Procter & Gamble identify in its annual filing?"}
+{"query_id": "q043", "ticker": "PG", "category": "profitability", "query": "What factors affected Procter & Gamble's profitability or operating margin?"}
+{"query_id": "q044", "ticker": "PG", "category": "operations_strategy", "query": "What operational or strategic factors does Procter & Gamble identify as important to its business performance?"}
+{"query_id": "q045", "ticker": "KO", "category": "revenue_growth", "query": "What factors affected Coca-Cola's revenue growth?"}
+{"query_id": "q046", "ticker": "KO", "category": "risk", "query": "What major business risks does Coca-Cola identify in its annual filing?"}
+{"query_id": "q047", "ticker": "KO", "category": "profitability", "query": "What factors affected Coca-Cola's profitability or operating margin?"}
+{"query_id": "q048", "ticker": "KO", "category": "operations_strategy", "query": "What operational or strategic factors does Coca-Cola identify as important to its business performance?"}
+{"query_id": "q049", "ticker": "PEP", "category": "revenue_growth", "query": "What factors affected PepsiCo's revenue growth?"}
+{"query_id": "q050", "ticker": "PEP", "category": "risk", "query": "What major business risks does PepsiCo identify in its annual filing?"}
+{"query_id": "q051", "ticker": "PEP", "category": "profitability", "query": "What factors affected PepsiCo's profitability or operating margin?"}
+{"query_id": "q052", "ticker": "PEP", "category": "operations_strategy", "query": "What operational or strategic factors does PepsiCo identify as important to its business performance?"}
+{"query_id": "q053", "ticker": "COST", "category": "revenue_growth", "query": "What factors affected Costco's revenue growth?"}
+{"query_id": "q054", "ticker": "COST", "category": "risk", "query": "What major business risks does Costco identify in its annual filing?"}
+{"query_id": "q055", "ticker": "COST", "category": "profitability", "query": "What factors affected Costco's profitability or operating margin?"}
+{"query_id": "q056", "ticker": "COST", "category": "operations_strategy", "query": "What operational or strategic factors does Costco identify as important to its business performance?"}
+{"query_id": "q057", "ticker": "HD", "category": "revenue_growth", "query": "What factors affected Home Depot's revenue growth?"}
+{"query_id": "q058", "ticker": "HD", "category": "risk", "query": "What major business risks does Home Depot identify in its annual filing?"}
+{"query_id": "q059", "ticker": "HD", "category": "profitability", "query": "What factors affected Home Depot's profitability or operating margin?"}
+{"query_id": "q060", "ticker": "HD", "category": "operations_strategy", "query": "What operational or strategic factors does Home Depot identify as important to its business performance?"}
+{"query_id": "q061", "ticker": "DIS", "category": "revenue_growth", "query": "What factors affected Disney's revenue growth?"}
+{"query_id": "q062", "ticker": "DIS", "category": "risk", "query": "What major business risks does Disney identify in its annual filing?"}
+{"query_id": "q063", "ticker": "DIS", "category": "profitability", "query": "What factors affected Disney's profitability or operating margin?"}
+{"query_id": "q064", "ticker": "DIS", "category": "operations_strategy", "query": "What operational or strategic factors does Disney identify as important to its business performance?"}
+{"query_id": "q065", "ticker": "NFLX", "category": "revenue_growth", "query": "What factors affected Netflix's revenue growth?"}
+{"query_id": "q066", "ticker": "NFLX", "category": "risk", "query": "What major business risks does Netflix identify in its annual filing?"}
+{"query_id": "q067", "ticker": "NFLX", "category": "profitability", "query": "What factors affected Netflix's profitability or operating margin?"}
+{"query_id": "q068", "ticker": "NFLX", "category": "operations_strategy", "query": "What operational or strategic factors does Netflix identify as important to its business performance?"}
+{"query_id": "q069", "ticker": "IBM", "category": "revenue_growth", "query": "What factors affected IBM's revenue growth?"}
+{"query_id": "q070", "ticker": "IBM", "category": "risk", "query": "What major business risks does IBM identify in its annual filing?"}
+{"query_id": "q071", "ticker": "IBM", "category": "profitability", "query": "What factors affected IBM's profitability or operating margin?"}
+{"query_id": "q072", "ticker": "IBM", "category": "operations_strategy", "query": "What operational or strategic factors does IBM identify as important to its business performance?"}
+{"query_id": "q073", "ticker": "ORCL", "category": "revenue_growth", "query": "What factors affected Oracle's revenue growth?"}
+{"query_id": "q074", "ticker": "ORCL", "category": "risk", "query": "What major business risks does Oracle identify in its annual filing?"}
+{"query_id": "q075", "ticker": "ORCL", "category": "profitability", "query": "What factors affected Oracle's profitability or operating margin?"}
+{"query_id": "q076", "ticker": "ORCL", "category": "operations_strategy", "query": "What operational or strategic factors does Oracle identify as important to its business performance?"}
+{"query_id": "q077", "ticker": "INTC", "category": "revenue_growth", "query": "What factors affected Intel's revenue growth?"}
+{"query_id": "q078", "ticker": "INTC", "category": "risk", "query": "What major business risks does Intel identify in its annual filing?"}
+{"query_id": "q079", "ticker": "INTC", "category": "profitability", "query": "What factors affected Intel's profitability or operating margin?"}
+{"query_id": "q080", "ticker": "INTC", "category": "operations_strategy", "query": "What operational or strategic factors does Intel identify as important to its business performance?"}
+{"query_id": "q081", "ticker": "AMD", "category": "revenue_growth", "query": "What factors affected AMD's revenue growth?"}
+{"query_id": "q082", "ticker": "AMD", "category": "risk", "query": "What major business risks does AMD identify in its annual filing?"}
+{"query_id": "q083", "ticker": "AMD", "category": "profitability", "query": "What factors affected AMD's profitability or operating margin?"}
+{"query_id": "q084", "ticker": "AMD", "category": "operations_strategy", "query": "What operational or strategic factors does AMD identify as important to its business performance?"}
+{"query_id": "q085", "ticker": "CSCO", "category": "revenue_growth", "query": "What factors affected Cisco's revenue growth?"}
+{"query_id": "q086", "ticker": "CSCO", "category": "risk", "query": "What major business risks does Cisco identify in its annual filing?"}
+{"query_id": "q087", "ticker": "CSCO", "category": "profitability", "query": "What factors affected Cisco's profitability or operating margin?"}
+{"query_id": "q088", "ticker": "CSCO", "category": "operations_strategy", "query": "What operational or strategic factors does Cisco identify as important to its business performance?"}
+{"query_id": "q089", "ticker": "QCOM", "category": "revenue_growth", "query": "What factors affected Qualcomm's revenue growth?"}
+{"query_id": "q090", "ticker": "QCOM", "category": "risk", "query": "What major business risks does Qualcomm identify in its annual filing?"}
+{"query_id": "q091", "ticker": "QCOM", "category": "profitability", "query": "What factors affected Qualcomm's profitability or operating margin?"}
+{"query_id": "q092", "ticker": "QCOM", "category": "operations_strategy", "query": "What operational or strategic factors does Qualcomm identify as important to its business performance?"}
+{"query_id": "q093", "ticker": "V", "category": "revenue_growth", "query": "What factors affected Visa's revenue growth?"}
+{"query_id": "q094", "ticker": "V", "category": "risk", "query": "What major business risks does Visa identify in its annual filing?"}
+{"query_id": "q095", "ticker": "V", "category": "profitability", "query": "What factors affected Visa's profitability or operating margin?"}
+{"query_id": "q096", "ticker": "V", "category": "operations_strategy", "query": "What operational or strategic factors does Visa identify as important to its business performance?"}
+{"query_id": "q097", "ticker": "MA", "category": "revenue_growth", "query": "What factors affected Mastercard's revenue growth?"}
+{"query_id": "q098", "ticker": "MA", "category": "risk", "query": "What major business risks does Mastercard identify in its annual filing?"}
+{"query_id": "q099", "ticker": "MA", "category": "profitability", "query": "What factors affected Mastercard's profitability or operating margin?"}
+{"query_id": "q100", "ticker": "MA", "category": "operations_strategy", "query": "What operational or strategic factors does Mastercard identify as important to its business performance?"}
