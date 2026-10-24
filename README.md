@@ -320,8 +320,12 @@ See [UI setup and acceptance checks](docs/streamlit.md),
 [answer study and manual scoring](docs/answer_study.md),
 [team handoff](docs/task7_8_handoff.md), and
 [report sections with pending result tables](docs/task7_8_report.md).
-The [local verification record](docs/validation_2026-10-21.md) records the 107
-passing software tests and explicitly separates them from real experimental results.
+The [24 October verification record](docs/validation_2026-10-24.md) records 109
+passing software tests, seven real-index UI acceptance checks, a browser evidence
+screenshot and five illustrative retrieval smoke checks. Final adjudicated-qrels
+ablations and real-provider answer evaluation remain pending. The
+[21 October record](docs/validation_2026-10-21.md) preserves the earlier 107-test,
+missing-index state rather than describing current local readiness.
 
 ```bash
 python -m src.run_ablation --file /path/to/retrieval_eval.jsonl --check-only
