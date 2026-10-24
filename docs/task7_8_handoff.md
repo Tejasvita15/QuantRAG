@@ -4,7 +4,19 @@
 
 The interface uses the `plan_route` and `RAGPipeline` APIs already present on `main`; it does not depend on completed evaluation labels. The ablation tool accepts an external JSONL path. Its implementation can be reviewed now, while final quality measurements must wait for the team's independent annotation and adjudication.
 
-This delivery is on `feature/streamlit-ui`, based on main revision `ae1d694`. It does not merge the implementation into main or modify teammates' annotation sheets.
+This delivery is on `feature/streamlit-ui`. On 2026-10-24, main revision `e039127` was merged into this branch to preserve the latest annotation submissions. This does not merge the UI implementation into main or change any annotator's labels. A team review/merge is still required.
+
+## Status on 24 October
+
+- The implementation passes 109 automated tests and dependency checks. Seven additional Streamlit AppTest acceptance checks pass with the real shared SEC corpus and cached BGE/cross-encoder models; no live-provider or LLM call was made.
+- The matching corpus, BM25 index, FAISS index and dense metadata are now installed locally. Each index has 25,976 matching passage records. Do not request the same bundle again for this machine.
+- The five default demonstration queries now cover AAPL, MSFT, NVDA, AMZN and CVX, all present in this snapshot. The earlier JPM/XOM examples returned no SEC passages because the snapshot lacks those companies. Unavailable-company handling remains a separate acceptance test. The manually annotated evaluation queries are unchanged.
+- Five real demonstration queries each returned five complete passages. These single-pass, warmed retrieval timings are smoke-test observations, not the final ablation or evidence of answer quality.
+- Main does not yet contain final adjudicated retrieval qrels or the pre-adjudication agreement calculation. Member CSV submissions do not by themselves provide final qrels. The evaluation owners need to finish collection, calculate overlap agreement and resolve disagreements before the final four-way experiment.
+- FRED and LLM model/key configuration are absent locally. Real FRED retrieval, paid-provider generation and answer-quality evaluation remain unverified. Use each operator's own credentials, not a teammate's secret key.
+- The shared Google Docs report is view-only for the current account. The English text in `docs/task7_8_report.md` is prepared for the relevant report sections; it has not been inserted into the shared document.
+
+See [the current verification record](validation_2026-10-24.md). The older 21 October record documents the earlier missing-index state and should not be used as the current readiness statement.
 
 ## Scope of this delivery
 
@@ -29,7 +41,7 @@ Main was pulled and this feature branch fast-forwarded to `ae1d694` on 2026-10-2
 
 The existing README also supplies the SEC download, preprocessing, corpus statistics, BM25 and dense-index build commands. `config.json` names the public BGE and cross-encoder models; those choices are not missing. Building the data locally is possible. To compare against the team's existing labels, however, the corpus snapshot and stable passage IDs must match.
 
-The repository intentionally ignores `data/raw/`, `data/processed/`, `indexes/` and `.env`, so cloning or pulling main does not download them. A matching prebuilt corpus/index bundle or shared-folder link is still needed for full SEC retrieval on another machine. The queries and blank annotation sheets are now tracked; completed/adjudicated qrels are not yet available.
+The repository intentionally ignores `data/raw/`, `data/processed/`, `indexes/` and `.env`, so cloning or pulling main does not download them. The trusted shared bundle is installed on this machine; another machine still needs that matching bundle or a reproducible rebuild. Member submissions are tracked, but completed/adjudicated qrels are not yet available.
 
 ## Current shared annotation workflow
 
@@ -43,12 +55,12 @@ Do not rerun `src/create_annotation_set.py` over completed annotation sheets: it
 
 **Implementation and offline tests do not establish real-data performance, real-provider acceptance or completion of the entire course project.** No final experimental metrics have been fabricated to fill the remaining gaps.
 
-On the updated revision, 107 automated tests, dependency checks, CLI/routing checks and the missing-index failure path passed. One real stock-only pipeline request returned a dated record with no errors and no LLM call. FRED/LLM success and SEC retrieval remain unverified because their local prerequisites are absent. See the [verification record](validation_2026-10-21.md). These checks are not final project-quality measurements.
+On 21 October, 107 automated tests and the missing-index failure path passed; one real stock-only request also returned a dated record without an LLM call. On 24 October, the expanded suite passes 109 tests and real SEC retrieval/UI acceptance passes with installed indexes. FRED/LLM success remains unverified. See the [current verification record](validation_2026-10-24.md). These checks are not final project-quality measurements.
 
 ## Immediate setup and later experiment inputs
 
-1. Tejasvita: the existing shared-folder/download link for the matching BM25 and FAISS indexes, dense metadata, complete passages and corpus statistics/manifest, with a version identifier. If no shared snapshot exists, agree on a reproducible rebuild before evaluating against existing passage IDs.
-2. Each annotator: confirm and complete the assigned Member CSV independently. The query file and sheets are already in main; do not request them again. After the team finishes, the evaluation owners can merge/adjudicate the labels and export final qrels with the agreement calculation. Keep answer-reference and answer-quality evaluation separate from query-passage relevance labels.
+1. New operators only: install the trusted shared corpus/index bundle and retain its manifest. It is already installed and verified on this machine; no duplicate handoff is needed here.
+2. Evaluation owners: collect the remaining independent annotations, merge by stable record identity, calculate pre-adjudication overlap agreement, resolve conflicts explicitly and export final qrels plus the agreement summary. Preserve all original labels. Do not use the five-query pilot as the final 100-query evaluation set. Keep answer-reference and answer-quality evaluation separate from query-passage relevance labels.
 3. The generation/FRED owners and the team: confirm the agreed model and compatible provider for controlled runs, plus any project-specific configuration choices beyond the existing documentation. Each person should configure their own local LLM/FRED credentials when needed, following the README, `.env.example` and query/generation instructions. Do not request or distribute teammates' secret API keys, or include them in the repository or report.
 4. The whole team: freeze the question set, model/prompt, context budget, index version and live-data snapshots for answer comparisons. Differences between stock observations collected on different dates must not be attributed to a system improvement.
 

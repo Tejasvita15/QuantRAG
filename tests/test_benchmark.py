@@ -1,10 +1,18 @@
 import unittest
 from unittest.mock import Mock
 
-from src.benchmark_queries import benchmark
+from src.benchmark_queries import QUERIES, benchmark
+from src.query_router import plan_route
 
 
 class BenchmarkTests(unittest.TestCase):
+    def test_default_smoke_companies_and_routing(self):
+        self.assertEqual([ticker for ticker, _ in QUERIES], ["AAPL", "MSFT", "NVDA", "AMZN", "CVX"])
+        for ticker, query in QUERIES:
+            plan = plan_route(query)
+            self.assertEqual(plan.routes, ("filing",))
+            self.assertEqual(plan.tickers, (ticker,))
+
     def test_five_queries_full_text_and_separate_warmup(self):
         retriever = Mock()
         text = "Full passage. " * 100

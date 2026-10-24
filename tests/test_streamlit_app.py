@@ -9,6 +9,7 @@ from unittest.mock import Mock, patch
 
 from streamlit.testing.v1 import AppTest
 
+from src.benchmark_queries import QUERIES
 from src.ui_support import build_options, readiness, safe_source_url
 
 
@@ -54,6 +55,13 @@ class StreamlitTests(unittest.TestCase):
             app = self.make_app()
             self.assertFalse(app.exception)
             pipeline.assert_not_called()
+
+    def test_default_examples_match_five_query_smoke_set(self):
+        app = self.make_app()
+        examples = [item.value for item in app.code]
+        self.assertEqual(examples[:5], [query for _, query in QUERIES])
+        self.assertIn("Microsoft interest-rate risks and latest Fed Funds Rate", examples)
+        self.assertFalse(any("JPMorgan" in query or "Exxon" in query for query in examples))
 
     def test_route_only_and_rerun_preserve_output(self):
         with patch("src.rag_pipeline.RAGPipeline") as pipeline:

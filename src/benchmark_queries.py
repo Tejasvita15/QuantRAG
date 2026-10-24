@@ -1,4 +1,9 @@
-"""Five required SEC example queries, with complete inspectable passages."""
+"""Five illustrative SEC smoke queries, with complete inspectable passages.
+
+These examples are not the manually labelled evaluation set. Their companies
+are present in the shared retrieval bundle; unavailable-company behavior is
+tested separately instead of making the default demonstration return no data.
+"""
 
 import argparse
 import json
@@ -15,8 +20,8 @@ QUERIES = [
     ("AAPL", "What risks does Apple identify related to supply chain disruption?"),
     ("MSFT", "What factors affected Microsoft's cloud revenue growth?"),
     ("NVDA", "What risks does NVIDIA report related to export restrictions?"),
-    ("JPM", "What does JPMorgan report about credit risk and loan losses?"),
-    ("XOM", "What risks does Exxon Mobil report regarding commodity prices?"),
+    ("AMZN", "What risks does Amazon report regarding fulfillment and logistics?"),
+    ("CVX", "What risks does Chevron report regarding commodity prices?"),
 ]
 
 def benchmark(retriever, *, top_k=5, warmup=True):
@@ -61,6 +66,7 @@ def main(argv=None):
     rows = benchmark(retriever, top_k=args.top_k, warmup=not args.no_warmup)
     payload = {"created_at": datetime.now(timezone.utc).isoformat(),
                "benchmark": "five SEC retrieval queries; not end-to-end LLM latency",
+               "purpose": "illustrative retrieval smoke test, not final retrieval-quality ablation",
                "warmup": not args.no_warmup, "initialization_s": initialization,
                "config": load_config(), "top_k": args.top_k, "queries": rows}
     args.output.parent.mkdir(parents=True, exist_ok=True)

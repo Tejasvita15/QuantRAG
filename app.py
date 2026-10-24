@@ -6,6 +6,7 @@ import time
 import streamlit as st
 from dotenv import load_dotenv
 
+from src.benchmark_queries import QUERIES
 from src.common import ROOT
 from src.query_router import plan_route
 from src.rag_pipeline import RAGPipeline
@@ -17,14 +18,9 @@ MODES = {
     "Retrieve evidence": "retrieve",
     "Generate answer": "answer",
 }
-EXAMPLES = [
-    "What risks does Apple identify related to supply chain disruption?",
-    "What factors affected Microsoft's cloud revenue growth?",
-    "What risks does NVIDIA report related to export restrictions?",
-    "What does JPMorgan report about credit risk and loan losses?",
-    "What risks does Exxon Mobil report regarding commodity prices?",
+EXAMPLES = [query for _, query in QUERIES] + [
     "Apple risks and latest stock price",
-    "JPMorgan interest-rate risks and latest Fed Funds Rate",
+    "Microsoft interest-rate risks and latest Fed Funds Rate",
 ]
 
 

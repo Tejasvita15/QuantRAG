@@ -29,7 +29,9 @@ The course delivery uses English interface labels, examples, router keywords and
 - On `generation_error`, the existing pipeline returns raw evidence rather than the exact sent context. The UI explicitly marks that context as unavailable and does not label those records as "sent to model".
 - Download JSON preserves routing, answer, evidence, timings, errors and non-secret run options for review. This is not a substitute for controlled experiment logs.
 
-## Files/credentials to obtain from teammates
+## Local artifacts and operator configuration
+
+The shared trusted bundle and cached retrieval models were verified on this machine on 24 October. See [the validation record](validation_2026-10-24.md). The following setup remains necessary for a fresh clone; pulling Git alone does not install the ignored data/indexes.
 
 For SEC retrieval, copy a **matching, trusted** set into the project:
 
@@ -39,7 +41,7 @@ indexes/dense/index.faiss
 indexes/dense/metadata.jsonl
 ```
 
-Also request the corpus manifest/statistics and passage collection for reproducibility. The BM25 store, dense metadata and FAISS index must refer to the same passage version; evaluated IDs must match that version. File-existence checks on the page do not prove this compatibility. BGE and cross-encoder models must be cached or downloadable on first use.
+Retain the corpus manifest/statistics and passage collection for reproducibility. The BM25 store, dense metadata and FAISS index must refer to the same passage version; evaluated IDs must match that version. File-existence checks on the page do not prove this compatibility. BGE and cross-encoder models must be cached or downloadable on first use.
 
 Use a local `.env` based on `.env.example`:
 
