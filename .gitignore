@@ -15,6 +15,9 @@ indexes/
 
 # Evaluation outputs
 eval/five_query_results.json
+eval/runs/
+eval/experiments/
+experiments/
 
 # OS/editor
 .DS_Store

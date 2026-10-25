@@ -25,23 +25,21 @@ COMPANY_NAMES = {
     "oracle": "ORCL", "intel": "INTC", "amd": "AMD", "cisco": "CSCO",
     "qualcomm": "QCOM", "goldman sachs": "GS", "morgan stanley": "MS",
     "visa": "V", "mastercard": "MA",
-    "苹果": "AAPL", "微软": "MSFT", "英伟达": "NVDA", "特斯拉": "TSLA",
-    "摩根大通": "JPM",
 }
 
 MACRO_SERIES = {
-    "cpi": ("cpi", "cpiaucsl", "inflation", "consumer price", "通胀", "消费者物价"),
-    "unemployment": ("unemployment", "unrate", "jobless", "jobs report", "失业率"),
+    "cpi": ("cpi", "cpiaucsl", "inflation", "consumer price"),
+    "unemployment": ("unemployment", "unrate", "jobless", "jobs report"),
     "fed_funds": ("fed funds", "federal funds", "fedfunds", "interest rate",
-                  "interest-rate", "fomc", "联邦基金利率", "利率"),
-    "gdp": ("gdp", "economic growth", "recession", "国内生产总值"),
+                  "interest-rate", "fomc"),
+    "gdp": ("gdp", "economic growth", "recession"),
     "treasury_10y": ("treasury", "dgs10", "10-year", "10 year", "10y",
-                     "bond yield", "国债收益率"),
+                     "bond yield"),
 }
 
 STOCK_KEYWORDS = (
     "stock", "stocks", "stock price", "share price", "trading", "quote",
-    "market cap", "market capitalization", "股价", "股票", "行情", "市值",
+    "market cap", "market capitalization",
 )
 FILING_KEYWORDS = (
     "filing", "filings", "10-k", "10-q", "10k", "10q", "annual report",
@@ -49,11 +47,9 @@ FILING_KEYWORDS = (
     "risk", "risks", "revenue", "revenues", "margin", "margins",
     "profitability", "supply chain", "supply-chain", "fundamentals",
     "business strategy", "cash flow", "balance sheet", "earnings",
-    "风险", "营收", "收入", "利润", "毛利", "财报", "年报", "供应链",
 )
 LIVE_KEYWORDS = (
     "current", "currently", "latest", "recent", "today", "now", "live",
-    "最新", "当前", "现在", "今日", "今天", "实时",
 )
 
 
@@ -167,20 +163,20 @@ def plan_route(query, *, ticker=None, series=None, year=None, form=None, kind="a
     # 'Latest annual report' describes the filing, not a request for today's
     # macro/market observations. Keep recency scoped away from those phrases.
     live_query = re.sub(
-        r"\b(?:current|latest|recent)\s+(?:10-?[KQ]|(?:annual |quarterly )?reports?|filings?)\b"
-        r"|(?:最新|当前|近期)(?:年报|财报)", "", query, flags=re.I,
+        r"\b(?:current|latest|recent)\s+(?:10-?[KQ]|(?:annual |quarterly )?reports?|filings?)\b",
+        "", query, flags=re.I,
     )
     live = _any(live_query, LIVE_KEYWORDS)
     separate_market_request = bool(re.search(
         r"\b(?:and|also)\s+(?:(?:what is|show|get)\s+)?(?:its?\s+)?"
-        r"(?:stock price|share price|quote|market cap)|(?:以及|和)(?:股价|市值|行情)",
+        r"(?:stock price|share price|quote|market cap)",
         query, re.I,
     ))
     stock = has_stock_intent(query) and (not filing or live or separate_market_request)
     macro = bool(indicators) and (bool(series) or not filing or live)
     # A macro-only jobs report is not a company filing.
     explicit_filing = bool(inferred_form) or _any(query, (
-        "filing", "filings", "annual report", "annual reports", "年报", "财报",
+        "filing", "filings", "annual report", "annual reports",
     ))
     use_filing = explicit_filing or (filing and bool(tickers)) or not (stock or macro)
     routes = tuple(name for name, use in (

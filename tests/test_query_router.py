@@ -17,7 +17,7 @@ class RoutingTests(unittest.TestCase):
             ("What is the current inflation rate?", ("macro",)),
             ("Latest GDP and unemployment rate", ("macro",)),
             ("Annual report risks and latest GDP", ("filing", "macro")),
-            ("苹果年报风险和最新股价以及当前利率", ("filing", "stock", "macro")),
+            ("Apple annual report risks and latest stock price and current interest rate", ("filing", "stock", "macro")),
         ]
         for query, expected in cases:
             with self.subTest(query=query):
@@ -36,7 +36,7 @@ class RoutingTests(unittest.TestCase):
             "Goldman Sachs trading risks in its 2024 10-K",
             "Apple stock price risk in its latest annual report",
             "JPMorgan interest rate risks in its latest 10-K",
-            "苹果最新年报中的利率风险",
+            "Interest-rate risks in Apple's latest annual report",
         ):
             with self.subTest(query=query):
                 self.assertEqual(plan_route(query).routes, ("filing",))

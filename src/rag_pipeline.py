@@ -49,7 +49,9 @@ class RAGPipeline:
                 from .retriever import HybridRetriever
             else:
                 from retriever import HybridRetriever
-            self.retriever = HybridRetriever(use_reranker=rerank)
+            # Retrieval loads the reranker lazily when a request asks for it.
+            # In particular, the first request's switch is not a lifetime cap.
+            self.retriever = HybridRetriever(use_reranker=False)
         return self.retriever.retrieve(
             query, top_k=top_k, ticker=ticker, year=year, form=form, rerank=rerank,
         )
