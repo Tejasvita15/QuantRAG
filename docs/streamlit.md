@@ -19,6 +19,21 @@ The course delivery uses English interface labels, examples, router keywords and
 
 ## Inputs and outputs
 
+### Guided research interface
+
+The opening **Start here** panel explains RAG, source selection, hybrid
+retrieval, reranking and generation, and connects these stages to the research
+question. Three example cards fill the question without submitting it.
+The sidebar explains each execution mode; passage count, reranking and
+metadata overrides are grouped under **Research settings** with help text.
+
+Use the same question in Route only, Retrieve evidence and Generate answer
+to follow the pipeline progressively. Results show a readable source preview,
+an evidence and citations tab, and a method and diagnostics tab. Source dates
+are visible above each record, while raw metadata remains expandable.
+Configuration indicators show whether values are present, not whether an API
+connection has succeeded. Editing controls does not resubmit a question.
+
 - The question supports detected companies/indicators and mixed SEC + stock + macro requests.
 - Optional overrides: one ticker, one FRED series/alias, route, filing-date year, filing form.
 - `top_k` is the number of SEC passages **per company**; it is not a global context budget.

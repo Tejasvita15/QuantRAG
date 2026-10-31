@@ -56,6 +56,23 @@ class StreamlitTests(unittest.TestCase):
             self.assertFalse(app.exception)
             pipeline.assert_not_called()
 
+    def test_example_fills_question_without_submitting_or_calling_backend(self):
+        with patch("src.rag_pipeline.RAGPipeline") as pipeline:
+            app = self.make_app()
+            app.button(key="example_Company filings").click().run()
+            self.assertEqual(app.text_area(key="query").value, QUERIES[0][1])
+            self.assertNotIn("last_response", app.session_state)
+            self.assertFalse(app.exception)
+            pipeline.assert_not_called()
+
+    def test_route_preview_explains_selected_sources(self):
+        app = self.submit(self.make_app(), "Apple risks and latest stock price")
+        text = " ".join(item.value for item in app.markdown)
+        self.assertIn("SEC company filings", text)
+        self.assertIn("Recent stock data", text)
+        self.assertTrue(any("Next: choose Retrieve evidence" in item.value for item in app.info))
+        self.assertFalse(app.exception)
+
     def test_default_examples_match_five_query_smoke_set(self):
         app = self.make_app()
         examples = [item.value for item in app.code]

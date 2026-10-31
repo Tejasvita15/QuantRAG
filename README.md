@@ -20,6 +20,20 @@ This repository implements SEC retrieval, live-data routing and evidence-grounde
 
 ## 1. Create environment
 
+On Windows PowerShell, use an explicitly supported Python version rather than
+the system default (which may point to an older Anaconda installation):
+
+```powershell
+py -3.10 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\scripts\start.ps1
+```
+
+The launcher uses the local environment without requiring activation. Open the
+local URL printed by Streamlit, normally http://127.0.0.1:8501. Start with
+**Route only**, then select **Retrieve evidence** to exercise the local indexes.
+Configure the FRED and LLM values described below before testing those providers.
+
 Recommended: Python 3.10 or 3.11.
 
 ```bash
