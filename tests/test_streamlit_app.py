@@ -43,16 +43,23 @@ class UISupportTests(unittest.TestCase):
 
 
 class StreamlitTests(unittest.TestCase):
-    def make_app(self):
+    def make_app(self, mode="Route only"):
         app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=15).run()
-        return app.selectbox(key="execution_mode").select("Route only").run()
+        key = f"open_{mode.replace(' ', '_').lower()}"
+        return app.button(key=key).click().run()
 
-    def test_simple_default_is_evidence_without_automatic_backend_calls(self):
+    def test_landing_defaults_to_evidence_without_backend_calls(self):
         with patch("src.rag_pipeline.RAGPipeline") as pipeline:
             app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=15).run()
-            self.assertEqual(app.selectbox(key="execution_mode").value, "Retrieve evidence")
-            self.assertEqual(len(app.text_area), 1)
+            self.assertEqual(app.session_state["page"], "landing")
+            self.assertEqual(app.session_state["execution_mode"], "Retrieve evidence")
+            self.assertEqual(len(app.text_area), 0)
             self.assertEqual(len(app.tabs), 0)
+            self.assertFalse(app.exception)
+            pipeline.assert_not_called()
+            app = app.button(key="open_retrieve_evidence").click().run()
+            self.assertEqual(app.session_state["page"], "query")
+            self.assertEqual(len(app.text_area), 1)
             self.assertFalse(app.exception)
             pipeline.assert_not_called()
 
@@ -119,9 +126,8 @@ class StreamlitTests(unittest.TestCase):
                           "metadata": {"id": "stable-id", "ticker": "AAPL", "filing_date": "2024-11-01"}}],
             "timings_s": {"filing": .1}, "errors": [],
         }
-        app = self.make_app()
+        app = self.make_app("Retrieve evidence")
         app.session_state["_pipeline"] = pipeline
-        app.selectbox(key="execution_mode").select("Retrieve evidence").run()
         app = self.submit(app, "Apple risks")
         self.assertFalse(app.exception)
         self.assertFalse(pipeline.run.call_args.kwargs["generate"])
@@ -129,11 +135,10 @@ class StreamlitTests(unittest.TestCase):
         self.assertEqual(app.session_state["last_response"]["status"], "retrieved")
 
     def test_backend_exception_does_not_expose_credentials(self):
-        app = self.make_app()
+        app = self.make_app("Retrieve evidence")
         pipeline = Mock()
         pipeline.run.side_effect = RuntimeError("api_key=SECRET")
         app.session_state["_pipeline"] = pipeline
-        app.selectbox(key="execution_mode").select("Retrieve evidence").run()
         app = self.submit(app, "Apple risks")
         self.assertFalse(app.exception)
         self.assertTrue(app.error)
@@ -148,9 +153,8 @@ class StreamlitTests(unittest.TestCase):
                           "content": json.dumps({"observations": [{"date": "2026-09-01", "value": 4.0}]}),
                           "metadata": {"series_id": "UNRATE", "latest_observation_date": "2026-09-01"}}],
         }
-        app = self.make_app()
+        app = self.make_app("Retrieve evidence")
         app.session_state["_pipeline"] = pipeline
-        app.selectbox(key="execution_mode").select("Retrieve evidence").run()
         app = self.submit(app, "Latest unemployment")
         self.assertFalse(app.exception)
         self.assertEqual(len(app.table), 1)
@@ -161,12 +165,20 @@ class StreamlitTests(unittest.TestCase):
     @patch.dict(os.environ, {"LLM_MODEL": "", "LLM_API_KEY": "", "OPENAI_API_KEY": ""})
     def test_missing_llm_config_stops_before_any_backend_call(self):
         with patch("src.rag_pipeline.RAGPipeline") as pipeline:
-            app = self.make_app()
-            app.selectbox(key="execution_mode").select("Generate answer").run()
+            app = self.make_app("Generate answer")
             app = self.submit(app, "Apple risks")
             self.assertFalse(app.exception)
             self.assertTrue(any("No provider call was made" in error.value for error in app.error))
             pipeline.assert_not_called()
+
+
+    def test_back_to_modes_returns_to_landing_and_keeps_result(self):
+        app = self.submit(self.make_app(), "Apple risks and latest stock price")
+        self.assertIn("last_response", app.session_state)
+        app = app.button(key="back_to_modes").click().run()
+        self.assertEqual(app.session_state["page"], "landing")
+        self.assertIn("last_response", app.session_state)
+        self.assertFalse(app.exception)
 
     def test_reset_clears_saved_result(self):
         app = self.submit(self.make_app(), "Apple risks")
@@ -182,9 +194,8 @@ class StreamlitTests(unittest.TestCase):
             "routing": {"kind": "filing", "missing_inputs": []}, "evidence": [],
             "limitations": ["Stock provider unavailable"], "errors": [], "latency_s": .2,
         }
-        app = self.make_app()
+        app = self.make_app("Generate answer")
         app.session_state["_pipeline"] = pipeline
-        app.selectbox(key="execution_mode").select("Generate answer").run()
         app = self.submit(app, "Apple risks")
         self.assertFalse(app.exception)
         self.assertTrue(pipeline.run.call_args.kwargs["generate"])
@@ -200,9 +211,8 @@ class StreamlitTests(unittest.TestCase):
             "routing": {"kind": "filing", "missing_inputs": []}, "evidence": [source],
             "sources": [source], "errors": [], "latency_s": .2,
         }
-        app = self.make_app()
+        app = self.make_app("Generate answer")
         app.session_state["_pipeline"] = pipeline
-        app.selectbox(key="execution_mode").select("Generate answer").run()
         app = self.submit(app, "Apple risks")
         self.assertFalse(app.exception)
         self.assertFalse(any("Exact context supplied" in e.label for e in app.expander))

@@ -134,14 +134,56 @@ def show_result(result):
                            file_name="quantrag-result.json", mime="application/json", key="download_result")
 
 
-def main():
-    st.set_page_config(page_title="QuantRAG", page_icon="📄", layout="centered")
-    load_dotenv(ROOT / ".env")
-    checks = readiness()
+MODE_DESCRIPTIONS = {
+    "Route only": "Preview how the question is routed. No indexes, models or API keys required.",
+    "Retrieve evidence": "Search SEC filings, recent stock data and macro indicators, then inspect every source.",
+    "Generate answer": "Retrieve evidence and generate a cited answer with your LLM provider.",
+}
+
+MODE_ICONS = {"Route only": "🔎", "Retrieve evidence": "📚", "Generate answer": "✨"}
+
+
+def show_landing():
     st.title("QuantRAG")
     st.write("Ask about company filings, recent stock prices or economic indicators. Read the evidence and follow the sources.")
+    st.write("")
+    cols = st.columns(3)
+    for col, mode_label in zip(cols, list(MODES)):
+        with col:
+            st.markdown(
+                f'<h3 style="font-size:20px;font-weight:700;margin:0 0 10px;">{MODE_ICONS[mode_label]} {mode_label.title().replace(" ", "<br>")}</h3>',
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                f'<div style="min-height:66px;color:#555867;font-size:14px;line-height:1.5;">{MODE_DESCRIPTIONS[mode_label]}</div>',
+                unsafe_allow_html=True,
+            )
+            if st.button("Open →", key=f"open_{mode_label.replace(' ', '_').lower()}", use_container_width=True):
+                st.session_state["execution_mode"] = mode_label
+                st.session_state["page"] = "query"
+                st.rerun()
 
-    with st.expander("Example questions"):
+
+def show_query_page(checks):
+    mode_label = st.session_state.get("execution_mode", "Retrieve evidence")
+    mode = MODES[mode_label]
+
+    bar = st.columns([2, 3])
+    with bar[0]:
+        st.markdown(f"**{MODE_ICONS[mode_label]} {mode_label.title()}**")
+    with bar[1]:
+        if st.button("← Back to modes", key="back_to_modes"):
+            st.session_state["page"] = "landing"
+            st.rerun()
+
+    with st.form("query_form"):
+        st.markdown("### Your question")
+        query = st.text_area("Your question", key="query", height=140, label_visibility="collapsed",
+                             placeholder="What supply-chain risks does Apple report?")
+        submitted = st.form_submit_button("Submit", type="primary", use_container_width=True)
+    st.caption(f"Mode: {mode_label.title()} · Ask in English · press Submit to run")
+
+    with st.expander("Example questions", expanded=False):
         examples = [("Company filings", EXAMPLES[0]),
                     ("Filings + stock", "What supply-chain risks does Apple report, and what is its latest stock price?"),
                     ("Filings + economy", EXAMPLES[-1])]
@@ -151,7 +193,7 @@ def main():
         for question in EXAMPLES:
             st.code(question, language=None)
 
-    with st.expander("Optional settings"):
+    with st.expander("Optional settings", expanded=False):
         ticker = st.text_input("Company ticker (optional)", key="ticker", help="Leave blank to detect companies in your question.")
         year = st.text_input("Filing-date year (optional)", key="year", help="Filters the filing date, not the fiscal year.")
         form = st.selectbox("Filing type", ["Auto", "10-K", "10-Q"], key="form")
@@ -168,13 +210,6 @@ def main():
             st.session_state.pop("_pipeline", None)
             st.session_state.pop("last_response", None)
 
-    mode_label = st.selectbox("Response", list(MODES), index=1, key="execution_mode",
-                             help="Retrieve evidence searches sources without GPT. Generate answer adds a cited answer and uses your API quota. Route only previews source selection.")
-    with st.form("query_form"):
-        query = st.text_area("Your question", key="query", height=100,
-                             placeholder="What supply-chain risks does Apple report?")
-        submitted = st.form_submit_button("Submit", type="primary", use_container_width=True)
-    mode = MODES[mode_label]
     if submitted:
         st.session_state.pop("last_response", None)
         try:
@@ -201,10 +236,26 @@ def main():
                         st.session_state["last_response"] = result
                     except Exception:
                         st.error("Request failed. Check local dependencies, provider configuration and network access. Raw errors are hidden to protect credentials.")
+
     if "last_response" in st.session_state:
         show_result(st.session_state["last_response"])
+
     st.caption("Research use only. Stock prices are adjusted daily closes, not real-time quotes. CPI observations are index levels, not inflation percentages.")
     st.caption("This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.")
+
+
+def main():
+    st.set_page_config(page_title="QuantRAG", page_icon="📄", layout="centered")
+    load_dotenv(ROOT / ".env")
+    checks = readiness()
+    st.session_state.setdefault("page", "landing")
+    st.session_state.setdefault("execution_mode", "Retrieve evidence")
+
+    if st.session_state["page"] == "landing":
+        show_landing()
+        return
+
+    show_query_page(checks)
 
 
 if __name__ == "__main__":
