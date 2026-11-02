@@ -11,26 +11,25 @@ python -m streamlit run app.py --server.address 127.0.0.1
 
 Keep the server local unless your group intentionally configures authenticated hosting. This app does not implement access control. Never publish a `.env`, provider key, or BM25 pickle from an untrusted party. Only load the team's trusted indexes: Python pickle deserialization can execute code.
 
-The default **Route only** mode works without corpus/index files, embedding models, or provider keys. It calls `plan_route`, not a mock answer generator.
+The default **Retrieve evidence** response searches sources without calling an LLM. SEC questions require the local corpus/indexes. Select **Route only** for a preview that works without indexes, embedding models or provider keys; it calls `plan_route`.
 
 The course delivery uses English interface labels, examples, router keywords and documentation. The generation prompt requests English answers.
 
-**Retrieve evidence** calls the shared `RAGPipeline.run(..., generate=False)`. **Generate answer** calls that same pipeline with `generate=True`, and can incur provider charges. Merely editing settings, expanding a passage, changing tabs, or downloading a result does not submit another request. Results remain in the session and are labelled as the *last submitted* result.
+**Retrieve evidence** calls the shared `RAGPipeline.run(..., generate=False)`. **Generate answer** calls that same pipeline with `generate=True`, and can incur provider charges. Merely editing settings, expanding a passage, or downloading a result does not submit another request. Results remain labelled as the last submitted question.
 
 ## Inputs and outputs
 
-### Guided research interface
+### Simple querying interface
 
-The opening **Start here** panel explains RAG, source selection, hybrid
-retrieval, reranking and generation, and connects these stages to the research
-question. Three example cards fill the question without submitting it.
-The sidebar explains each execution mode; passage count, reranking and
-metadata overrides are grouped under **Research settings** with help text.
+The centered page has one question form and a response selector. Example
+questions and optional settings are collapsed. Example buttons fill the form
+without submitting it. The page uses standard Streamlit controls, with no
+dashboard, sidebar, method cards or result tabs.
 
-Use the same question in Route only, Retrieve evidence and Generate answer
-to follow the pipeline progressively. Results show a readable source preview,
-an evidence and citations tab, and a method and diagnostics tab. Source dates
-are visible above each record, while raw metadata remains expandable.
+Results place the answer above expandable sources. Each source shows its
+filing/trading/observation date and an original-source link where available.
+Stock snapshots and macro observations use readable tables. Raw metadata,
+model context, stage timings and JSON download are expandable technical details.
 Configuration indicators show whether values are present, not whether an API
 connection has succeeded. Editing controls does not resubmit a question.
 
@@ -40,7 +39,7 @@ connection has succeeded. Editing controls does not resubmit a question.
 - Filing-date year is not the fiscal year. Multiple years mentioned in a question remain unfiltered unless explicitly overridden.
 - Reranking is an independent per-request switch. The retriever loads its cross-encoder when first needed; switching off and then on does not permanently disable it.
 - Answers display the pipeline's validated citation IDs, availability limitations and explicit failure/partial/abstention states.
-- The Evidence tab displays complete collected passages, stable passage IDs and provider metadata. It distinguishes sources cited in the answer from sources actually supplied to the model. The exact bounded/truncated model context is separately inspectable.
+- The Sources section displays complete collected passages, stable passage IDs and provider metadata. Cited sources are labelled; the exact bounded/truncated model context is separately inspectable under Technical details.
 - On `generation_error`, the existing pipeline returns raw evidence rather than the exact sent context. The UI explicitly marks that context as unavailable and does not label those records as "sent to model".
 - Download JSON preserves routing, answer, evidence, timings, errors and non-secret run options for review. This is not a substitute for controlled experiment logs.
 

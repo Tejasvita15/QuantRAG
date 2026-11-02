@@ -44,7 +44,17 @@ class UISupportTests(unittest.TestCase):
 
 class StreamlitTests(unittest.TestCase):
     def make_app(self):
-        return AppTest.from_file(str(ROOT / "app.py"), default_timeout=15).run()
+        app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=15).run()
+        return app.selectbox(key="execution_mode").select("Route only").run()
+
+    def test_simple_default_is_evidence_without_automatic_backend_calls(self):
+        with patch("src.rag_pipeline.RAGPipeline") as pipeline:
+            app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=15).run()
+            self.assertEqual(app.selectbox(key="execution_mode").value, "Retrieve evidence")
+            self.assertEqual(len(app.text_area), 1)
+            self.assertEqual(len(app.tabs), 0)
+            self.assertFalse(app.exception)
+            pipeline.assert_not_called()
 
     def submit(self, app, query):
         app.text_area(key="query").set_value(query)
@@ -128,6 +138,25 @@ class StreamlitTests(unittest.TestCase):
         self.assertFalse(app.exception)
         self.assertTrue(app.error)
         self.assertNotIn("SECRET", " ".join(e.value for e in app.error))
+
+    def test_macro_observations_render_as_a_dated_table(self):
+        pipeline = Mock()
+        pipeline.run.return_value = {
+            "query": "Latest unemployment", "status": "retrieved", "latency_s": .1,
+            "routing": {"kind": "macro", "routes": ["macro"]},
+            "evidence": [{"source_id": "FRED1", "kind": "macro",
+                          "content": json.dumps({"observations": [{"date": "2026-09-01", "value": 4.0}]}),
+                          "metadata": {"series_id": "UNRATE", "latest_observation_date": "2026-09-01"}}],
+        }
+        app = self.make_app()
+        app.session_state["_pipeline"] = pipeline
+        app.selectbox(key="execution_mode").select("Retrieve evidence").run()
+        app = self.submit(app, "Latest unemployment")
+        self.assertFalse(app.exception)
+        self.assertEqual(len(app.table), 1)
+        captions = " ".join(item.value for item in app.caption)
+        self.assertIn("Latest observation: 2026-09-01", captions)
+        self.assertIn("Units: not supplied", captions)
 
     @patch.dict(os.environ, {"LLM_MODEL": "", "LLM_API_KEY": "", "OPENAI_API_KEY": ""})
     def test_missing_llm_config_stops_before_any_backend_call(self):

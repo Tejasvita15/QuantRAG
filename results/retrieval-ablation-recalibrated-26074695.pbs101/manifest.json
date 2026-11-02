@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-10-31T18:20:25.721176+00:00",
+  "scope": "retrieval only; no LLM, live providers, answer quality or financial validity is evaluated",
+  "qrels": {
+    "filename": "retrieval_eval_recalibrated.jsonl",
+    "sha256": "2c26d15eaf1bac69ccda45488986ae80c43b7b7d8dd45dfc76283e84e8515df4"
+  },
+  "git": {
+    "commit": null,
+    "branch": null,
+    "dirty": null
+  },
+  "runtime": {
+    "python": "3.10.21",
+    "platform": "Linux-4.18.0-553.125.1.el8_10.x86_64-x86_64-with-glibc2.28",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "packages": {
+      "numpy": "2.2.6",
+      "faiss-cpu": "1.15.1",
+      "rank-bm25": "0.2.2",
+      "sentence-transformers": "6.1.0",
+      "torch": "2.11.0+cu128",
+      "transformers": "5.19.0"
+    }
+  },
+  "configuration": {
+    "dense_model": "BAAI/bge-base-en-v1.5",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "top_k": 10,
+    "repeats": 3,
+    "warmup_queries_per_variant": 1,
+    "seed": 6127,
+    "candidate_k_per_branch": 50,
+    "rerank_pool_k": 30,
+    "rrf_k": 60
+  },
+  "artifacts": {
+    "indexes/bm25/bm25.pkl": {
+      "size_bytes": 106929718,
+      "sha256": "6e3bd452ba7b85479a1257f7d6845fadd67970a5bde8b95c368596aec0ec40ce"
+    },
+    "indexes/dense/index.faiss": {
+      "size_bytes": 79798317,
+      "sha256": "37b0c98f2df56b3845f13866a3b2812e49e056d4218be9b220e093b0cf9ec662"
+    },
+    "indexes/dense/metadata.jsonl": {
+      "size_bytes": 63416245,
+      "sha256": "5c5344923450f276418c0989be6ffe6bb904ff0d1b1b038a06ecd8b2edce863b"
+    },
+    "data/processed/passages.jsonl": {
+      "size_bytes": 63416245,
+      "sha256": "5c5344923450f276418c0989be6ffe6bb904ff0d1b1b038a06ecd8b2edce863b"
+    },
+    "config.json": {
+      "size_bytes": 871,
+      "sha256": "3eeaaf401a13d74ff8dd84e4a0c5c2a6c5bb9154403ee01efb8bad330b3d7ff7"
+    },
+    "requirements.txt": {
+      "size_bytes": 196,
+      "sha256": "3cdb7ad868b1088046f317f8896d3fd4c82d9c5de6dd151636e10916dc89a742"
+    },
+    "src/__init__.py": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/answer_study.py": {
+      "size_bytes": 28210,
+      "sha256": "b4be7545576581888383a50caa1cbb76af937bfbb44274c1f740a6b7da3cfe61"
+    },
+    "src/benchmark_queries.py": {
+      "size_bytes": 3514,
+      "sha256": "5da69f5ea5b0a95e8be6b489914db1352fe6d13aa74ee42cc37e98e028c62623"
+    },
+    "src/build_bm25.py": {
+      "size_bytes": 690,
+      "sha256": "9d76dcbb887b869dacf82219e03bc711b764ddb4ccef4177b7f883fb0138ae45"
+    },
+    "src/build_dense.py": {
+      "size_bytes": 1108,
+      "sha256": "cc389eb0cdd707567a669105d42775ebbf3a80c631310fd89459e6b387d77fce"
+    },
+    "src/common.py": {
+      "size_bytes": 975,
+      "sha256": "570d60ebafda6eb398e8f8459de60b89bb551740bbe5e6aede7899036c03955a"
+    },
+    "src/compute_annotation_agreement.py": {
+      "size_bytes": 15037,
+      "sha256": "f86a63dd20ed6ecf16540d3be62593439cf43d4c00f3347994f739ce3adb6f6d"
+    },
+    "src/corpus_stats.py": {
+      "size_bytes": 984,
+      "sha256": "0c9151869c923bfb3892e0a07809d78284261214b0a3a07b392c718ab6821196"
+    },
+    "src/create_annotation_set.py": {
+      "size_bytes": 21661,
+      "sha256": "0bbd2820a29ed5c696f158074137dc19ec3559899dbc10109a17b379cdf28fb1"
+    },
+    "src/create_eval_queries.py": {
+      "size_bytes": 2490,
+      "sha256": "5c3c580fb75837a348be4bef7fdc63394635d8792ed5c680a2ebdfac5399ec1a"
+    },
+    "src/create_recalibration_round.py": {
+      "size_bytes": 13526,
+      "sha256": "30f1680b169b71333285ea170537b7159328f20808afbf6969aa02d0699e65ff"
+    },
+    "src/download_sec.py": {
+      "size_bytes": 4478,
+      "sha256": "aa6ee6e9f25025a235ff375d3982c35ab71edf7cd8603df623bf13c94f8b94f2"
+    },
+    "src/evaluate_retrieval.py": {
+      "size_bytes": 2359,
+      "sha256": "30433e6a810dceb115cdc50bb07dfe5a4daaa8e467828aa1346406e7f541dc89"
+    },
+    "src/generator.py": {
+      "size_bytes": 11730,
+      "sha256": "84947abf4830b21f996bfe58df6230b5d163349c66af0e36d26d79071eab5707"
+    },
+    "src/live/__init__.py": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/live/fred_tool.py": {
+      "size_bytes": 1946,
+      "sha256": "bdef51a0c7e5308b8ca0f58f96dadad270e91057f47fd6b32380c9491031eb8d"
+    },
+    "src/live/stock_tool.py": {
+      "size_bytes": 1982,
+      "sha256": "9026731cac4205554d43f04bfad55229e6f425ad186ad8243e4d60685646a51b"
+    },
+    "src/merge_recalibration_labels.py": {
+      "size_bytes": 12869,
+      "sha256": "ba7162ae344257fd4d586b4597e4eac5f448c7b01cbdaf809622f5a33e191f36"
+    },
+    "src/prepare_corpus.py": {
+      "size_bytes": 3489,
+      "sha256": "5901db3584e0967f6b54cf510d60a04d7499b8674eedf8eb2fd3574417c56ee1"
+    },
+    "src/query.py": {
+      "size_bytes": 3404,
+      "sha256": "28af2fea9617501ea11adc741c7da99297f61a8bc7045f7bbae94e523c75a97b"
+    },
+    "src/query_router.py": {
+      "size_bytes": 8105,
+      "sha256": "dbceda578512a31ae742f6a7ad9f5d12a6a9bf038702b75a61b3446a5b5f62f7"
+    },
+    "src/rag_pipeline.py": {
+      "size_bytes": 9390,
+      "sha256": "4877035143172886bd15cdbf80cc519de5e8b76eaad8285b0e50b5e08dde90dd"
+    },
+    "src/retriever.py": {
+      "size_bytes": 7088,
+      "sha256": "6df1357b330eac247bc34fdfbd1d957e9b06bda966b49b18701fa45f3ff97492"
+    },
+    "src/run_ablation.py": {
+      "size_bytes": 29492,
+      "sha256": "beafe0e334295b5718a364ef2b449eef0789fa982d032bd0929961e4ab56acd7"
+    },
+    "src/search.py": {
+      "size_bytes": 1279,
+      "sha256": "243c0b408274b79201aad94b80dcad807be275fd4d997ac779c34c8e7ed19581"
+    },
+    "src/ui_support.py": {
+      "size_bytes": 2390,
+      "sha256": "b42c869a67b95b875a1d4c08ee158ea390cafa39098c77e15e9cec89c666d572"
+    }
+  },
+  "initialization_s_excluded_from_query_latency": 120.60321686300449,
+  "model_revision_note": "Model identifiers may resolve to mutable upstream revisions; retain/pin the exact local model cache for a strict rerun.",
+  "timing_note": "Sequential wall-clock retrieval calls; model/index initialization and recorded warmup calls excluded. No GPU synchronization is forced; small pilot p95 estimates are unstable.",
+  "shared_initialization_note": "The shared retriever loads both indexes and its dense encoder. BM25 measures BM25-only query work after shared initialization; this is not an independently deployed BM25 service's cold-start or memory cost.",
+  "secrets_note": "No environment variable values, .env contents, API keys, remotes or provider response bodies are collected."
+}

@@ -1,5 +1,29 @@
 # QuantRAG — Retrieval and Grounded Financial QA
 
+## Quick start for teammates
+
+Use Python 3.10 or 3.11. In the repository root on Windows PowerShell:
+
+```powershell
+py -3.10 scripts/setup.py
+.\.venv\Scripts\python.exe scripts/check_setup.py
+.\scripts\start.ps1
+```
+
+On macOS/Linux:
+
+```bash
+python3.11 scripts/setup.py
+.venv/bin/python scripts/check_setup.py
+bash scripts/start.sh
+```
+
+Open http://127.0.0.1:8501. **Route only** works immediately after installing
+dependencies. For **Retrieve evidence**, obtain the team's matching SEC data
+bundle. For **Generate answer**, add your own API configuration to `.env`.
+Git pull does not download data, indexes or credentials.
+See [complete team setup and data sharing instructions](docs/team_setup.md).
+
 This repository implements SEC retrieval, live-data routing and evidence-grounded answer generation for the AI6127 QuantRAG project:
 
 - SEC EDGAR 10-K ingestion
@@ -323,8 +347,9 @@ with the Streamlit UI and the exact offline test scope.
 python -m streamlit run app.py --server.address 127.0.0.1
 ```
 
-The default **Route only** mode needs no indexes, models or API keys. Choose
-**Retrieve evidence** or **Generate answer** to run the existing shared pipeline.
+The default **Retrieve evidence** response searches without a language-model call.
+Select **Route only** for a preview needing no indexes, models or API keys, or
+**Generate answer** for an evidence-grounded answer from the shared pipeline.
 The app displays routing, complete evidence, exact model context, citations,
 partial/failure states, latency and downloadable JSON. Generation may incur API
 charges; it only runs after an explicit submission.

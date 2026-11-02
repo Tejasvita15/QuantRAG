@@ -1,0 +1,1595 @@
+{
+  "schema_version": "1.0",
+  "kind": "human_answer_evaluation",
+  "annotator_count": 2,
+  "rating_rows": 240,
+  "declared_unique_held_out_questions": 0,
+  "held_out_questions_with_all_four_variants_double_rated": 0,
+  "course_checks": {
+    "at_least_1000_declared_held_out_questions": false,
+    "at_least_1000_all_variants_double_rated": false,
+    "observed_exact_agreement_at_least_80_percent": false
+  },
+  "agreement": {
+    "definition": "Exact equality on 1..5 labels, across every observed annotator pair for the same answer and dimension; not chance-corrected.",
+    "exact_matches": 315,
+    "paired_comparisons": 480,
+    "overall_exact_agreement": 0.65625,
+    "by_dimension": {
+      "faithfulness": {
+        "exact_matches": 60,
+        "paired_comparisons": 120,
+        "exact_agreement": 0.5
+      },
+      "relevance": {
+        "exact_matches": 89,
+        "paired_comparisons": 120,
+        "exact_agreement": 0.741667
+      },
+      "context_precision": {
+        "exact_matches": 83,
+        "paired_comparisons": 120,
+        "exact_agreement": 0.691667
+      },
+      "quality": {
+        "exact_matches": 83,
+        "paired_comparisons": 120,
+        "exact_agreement": 0.691667
+      }
+    }
+  },
+  "summary": [
+    {
+      "variant": "bm25",
+      "rated_answers": 30,
+      "answers_with_two_annotators": 30,
+      "status_counts": {
+        "answered": 8,
+        "insufficient_evidence": 1,
+        "partial": 21
+      },
+      "models": [
+        "gpt-5.6-terra"
+      ],
+      "means": {
+        "faithfulness": 4.583333,
+        "relevance": 3.816667,
+        "context_precision": 2.566667,
+        "quality": 3.416667
+      },
+      "mean_generation_latency_s": 5.236873,
+      "reported_token_totals": {
+        "prompt_tokens": 199121,
+        "completion_tokens": 13544,
+        "total_tokens": 212665
+      },
+      "answers_with_reported_usage": 30
+    },
+    {
+      "variant": "dense",
+      "rated_answers": 30,
+      "answers_with_two_annotators": 30,
+      "status_counts": {
+        "answered": 14,
+        "partial": 16
+      },
+      "models": [
+        "gpt-5.6-terra"
+      ],
+      "means": {
+        "faithfulness": 4.65,
+        "relevance": 4.533333,
+        "context_precision": 3.25,
+        "quality": 3.85
+      },
+      "mean_generation_latency_s": 5.922662,
+      "reported_token_totals": {
+        "prompt_tokens": 197966,
+        "completion_tokens": 16785,
+        "total_tokens": 214751
+      },
+      "answers_with_reported_usage": 30
+    },
+    {
+      "variant": "hybrid_no_rerank",
+      "rated_answers": 30,
+      "answers_with_two_annotators": 30,
+      "status_counts": {
+        "answered": 11,
+        "insufficient_evidence": 1,
+        "partial": 18
+      },
+      "models": [
+        "gpt-5.6-terra"
+      ],
+      "means": {
+        "faithfulness": 4.533333,
+        "relevance": 4.216667,
+        "context_precision": 2.95,
+        "quality": 3.666667
+      },
+      "mean_generation_latency_s": 5.167609,
+      "reported_token_totals": {
+        "prompt_tokens": 198731,
+        "completion_tokens": 14301,
+        "total_tokens": 213032
+      },
+      "answers_with_reported_usage": 30
+    },
+    {
+      "variant": "hybrid",
+      "rated_answers": 30,
+      "answers_with_two_annotators": 30,
+      "status_counts": {
+        "answered": 15,
+        "partial": 15
+      },
+      "models": [
+        "gpt-5.6-terra"
+      ],
+      "means": {
+        "faithfulness": 4.533333,
+        "relevance": 4.333333,
+        "context_precision": 3.116667,
+        "quality": 3.883333
+      },
+      "mean_generation_latency_s": 5.180093,
+      "reported_token_totals": {
+        "prompt_tokens": 198638,
+        "completion_tokens": 14095,
+        "total_tokens": 212733
+      },
+      "answers_with_reported_usage": 30
+    }
+  ],
+  "per_answer": [
+    {
+      "answer_id": "74601a98553249feb6719e77fc8f303a",
+      "query_id": "q070",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "420045777f9d464a894f60e4e6b7130f",
+      "query_id": "q015",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 3.5,
+        "context_precision": 3,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "4cf4c612841b4723afceb036c76f3942",
+      "query_id": "q089",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "f87ee13370b64d77a8a1ce9475ce0dcd",
+      "query_id": "q014",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 3,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "bfbd3d020c0045a9a6dacc6a76e14918",
+      "query_id": "q085",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "274f139423404363ac57a228752d4d26",
+      "query_id": "q015",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 3.5,
+        "context_precision": 3,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "5db246006c5c4ae2847a1633b86a2b73",
+      "query_id": "q018",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 2,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "75626c0beb7c443f9af1ca8854d11510",
+      "query_id": "q012",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "5a2592158ae54bab9a974a462b5743b0",
+      "query_id": "q054",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "62eeefeb2cde46b99677c4777fdc8a2a",
+      "query_id": "q036",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "504cd3b0af184205abd3510696b2e1fe",
+      "query_id": "q098",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "c9a337aaa744409e8126a91c75a202d6",
+      "query_id": "q012",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "468f936a86fc46789c80d179ff3607b7",
+      "query_id": "q072",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "f14d203304624028b6fc00a779526e66",
+      "query_id": "q087",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4.5,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "14b3490fb21840fdb3e12a4c82a03d18",
+      "query_id": "q096",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "e56fe6417bd546e0956e050129074dbb",
+      "query_id": "q026",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "68fb8da573694413bbdf18c9ab1e30e6",
+      "query_id": "q029",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 3,
+        "context_precision": 1,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "aa00aa8204b847eea402a21405bf16b7",
+      "query_id": "q082",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "a3d7fc0d68e34272a9f412db9f9c8a13",
+      "query_id": "q055",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "11d438445c134944a4afbb95335e5728",
+      "query_id": "q065",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "83bca314201347828ebcffcc3515bbdc",
+      "query_id": "q065",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "775ee27115af4c149eff96fc175c113b",
+      "query_id": "q005",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 5
+      }
+    },
+    {
+      "answer_id": "53a5518014304fd9b4e479d8ca844b76",
+      "query_id": "q078",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "dc442b37f73545cab75458a68e344f04",
+      "query_id": "q070",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "b8b030d01be74e35921328bdb691bed0",
+      "query_id": "q085",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "c99194d170e9455aa5aa00ceb603a0d7",
+      "query_id": "q014",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 2.5,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "dbb8a018522d4fb19e2671b34e4c852e",
+      "query_id": "q012",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "56f1b9dec3424c0d92d84b4678b150f9",
+      "query_id": "q058",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "0037280ef7964214a49aa8021ce1c461",
+      "query_id": "q090",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 3.5,
+        "context_precision": 2.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "3ee70954678744719036ff19267e0598",
+      "query_id": "q005",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "b7ddc6300fe445b6a3f95f8ddab1f5a6",
+      "query_id": "q058",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 2.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "57f7f93683934097868f6594845a94e8",
+      "query_id": "q018",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4.5,
+        "context_precision": 2,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "bce8b06ede114d69b1fbe5c12225e6cc",
+      "query_id": "q095",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 3.5,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "afadea5bcac7435684f5903500bc5a63",
+      "query_id": "q072",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "673969db086e484faaea936154d372e7",
+      "query_id": "q054",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 2,
+        "context_precision": 1,
+        "quality": 2.5
+      }
+    },
+    {
+      "answer_id": "a62f6c93c9c24edfb255ff0097604840",
+      "query_id": "q095",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 2.5,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "68aff3ca9e9d4d808311ba5ae79f2a14",
+      "query_id": "q090",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "7f40a819c04649fbb12d3186eb90ef67",
+      "query_id": "q026",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "20b60137259b4683adb3470e9ca69031",
+      "query_id": "q072",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "807f923f30a14323b094bb71a1572009",
+      "query_id": "q036",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "f46645036bfe44a6b4a16fba3324aed9",
+      "query_id": "q055",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "2defae7884a54dafa4cdf8379764f435",
+      "query_id": "q032",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 3.5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "6696e177428a45c39b9f80e2945a1a94",
+      "query_id": "q014",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 2.5,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "134db8c044e844c1a2ce7ced2cd7a5c2",
+      "query_id": "q072",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "c558e819492e4588ad719914215c23ea",
+      "query_id": "q028",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "9552c1550e5d4be3868916e735cb1c01",
+      "query_id": "q089",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "1919eba4478f43bfaa5297a7c154af20",
+      "query_id": "q076",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "b4f9aad98fc64588aa423fc373ec9e65",
+      "query_id": "q054",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 3.5,
+        "context_precision": 1,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "295acb76f94642d39cc7c7699bea3edb",
+      "query_id": "q055",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "3789e9d7244c4b6e9b704df490376d19",
+      "query_id": "q095",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4.5,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "32dd3dcea1da4312b0c8cf72ccb43266",
+      "query_id": "q001",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "3faadf4622ed4951a30b1ceead2774a4",
+      "query_id": "q096",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "60cbf83b314442cd8c97103b4a54050a",
+      "query_id": "q028",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4.5,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "59519172651142ffba287ff46769e275",
+      "query_id": "q030",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 2.5,
+        "context_precision": 1.5,
+        "quality": 2.5
+      }
+    },
+    {
+      "answer_id": "4f1341377e524f94afe57fbe27ed3da6",
+      "query_id": "q065",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "83a2d2fb427d4365a225bb75273684a3",
+      "query_id": "q098",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "d2866447444f4d0cb65488fc32e847a0",
+      "query_id": "q076",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "f1cb8ef75db34056b8fda1782764ede8",
+      "query_id": "q082",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "bfb752b6dd7e406ba3794d78d20f4264",
+      "query_id": "q030",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 2.5,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "53d4840032e547218f0c2942a9e54006",
+      "query_id": "q036",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 3.5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "2606f48f6ded4ae9aef836958fea0ca3",
+      "query_id": "q005",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "6cd9f7440cb14c7b966174ee0c9de7b9",
+      "query_id": "q089",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "e1efb0a9df3245e28c2617cb2e8533b7",
+      "query_id": "q004",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "00bcba8d8ff140258abbcda34eb27e2d",
+      "query_id": "q054",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 2.5,
+        "context_precision": 1.5,
+        "quality": 2.5
+      }
+    },
+    {
+      "answer_id": "13d608c7a8444a5ba2db5ab218b93e84",
+      "query_id": "q028",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 3.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "908b7cb504284d238d23f9b814ed43b9",
+      "query_id": "q085",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 5
+      }
+    },
+    {
+      "answer_id": "3e84929afd744cb7b031b8d06b17de15",
+      "query_id": "q095",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 2.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "dd5884df64444f8a83515b970f78e460",
+      "query_id": "q029",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 5
+      }
+    },
+    {
+      "answer_id": "94ba72917e0841f590dee031acf72838",
+      "query_id": "q094",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "f5b50dd52a0947b19af59ec133b4b9a2",
+      "query_id": "q058",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 2.5,
+        "context_precision": 1.5,
+        "quality": 2.5
+      }
+    },
+    {
+      "answer_id": "10e0ff2ede65449e804b0bc65372577e",
+      "query_id": "q065",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "f1eb6b65dd71405da6f97ca5257a35e4",
+      "query_id": "q085",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 5
+      }
+    },
+    {
+      "answer_id": "f9394b20fec44017838662dc77cdf1a6",
+      "query_id": "q001",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "ee237ea0f5034ea4a6e1bd780230e17f",
+      "query_id": "q036",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "b23b90f840d3447086be97e10e1651e0",
+      "query_id": "q096",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "b5274af89263474b9bd20540cf1e91f3",
+      "query_id": "q004",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "cf6444f8c97c4558bdcaf9304d883ab5",
+      "query_id": "q001",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 3.5,
+        "relevance": 3,
+        "context_precision": 2.5,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "b3cb3505977f4b1ababc9528f9a8d674",
+      "query_id": "q032",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "bbe80726d3504f9c9d8ea02e115f9abd",
+      "query_id": "q098",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "b23845a746b44cc888f16763aa7b5df5",
+      "query_id": "q026",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 2.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "7e9f6ace7da2497d97d9556014a36d74",
+      "query_id": "q087",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "1db712c5e16e49899b4c430373705fd7",
+      "query_id": "q055",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "49ac9c25956c40438688e6bca24e2c7b",
+      "query_id": "q004",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4.5,
+        "context_precision": 2.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "de6c97ab57fc4751b2b2b0f8dfd3fd72",
+      "query_id": "q032",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "ce0214653c424aeeacf1cb0d073007d3",
+      "query_id": "q094",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "80f2029c47da4ae79e55ce37075e881a",
+      "query_id": "q087",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "3afb12d90c334a5c9fa849852ae82d66",
+      "query_id": "q089",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 3.5,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "37954a95344c4cb3a906e08ff6dc440e",
+      "query_id": "q028",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "eb22253e663f48f39a6321d04a6e4654",
+      "query_id": "q004",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "def82989c30643b08f2aa77dc3cc7e14",
+      "query_id": "q082",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 2.5,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "bc42e4fc1b934a6ea28fef1429b463c4",
+      "query_id": "q018",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "142a7d4818584a9c9fbfbe90c80e629a",
+      "query_id": "q096",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "20e34ced94294ce48213ffbb9d83b0dd",
+      "query_id": "q018",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "371823805fea406ea1b95f60e2f6cba8",
+      "query_id": "q015",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "48aa155193b245e985d2bfea82de0983",
+      "query_id": "q030",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "41645a9a79134d57a712c782e8e6a4d4",
+      "query_id": "q030",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "62770407004846f98ae821423476c849",
+      "query_id": "q070",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 3.5,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "26659be3f51948b2b10d7caafdbbec0b",
+      "query_id": "q090",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4.5,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "f0d113e0a3f14b2a9d9e9b275b1e672e",
+      "query_id": "q078",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 2.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "1469937572574eec8b7e8b77dbfda208",
+      "query_id": "q029",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 5
+      }
+    },
+    {
+      "answer_id": "da9e6354393c461bb77c00df16d4e9ff",
+      "query_id": "q032",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "74fc5a57d6e4423199a10e39fb93d1e0",
+      "query_id": "q058",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 2,
+        "context_precision": 1.5,
+        "quality": 2
+      }
+    },
+    {
+      "answer_id": "d8fceb3ea2554d87ac63528adca74056",
+      "query_id": "q090",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "94c61817e61d47528bdc699d87a91083",
+      "query_id": "q094",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 2.5,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "4eaa549135fd448483b6509782b3571a",
+      "query_id": "q087",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "8cbae79aa1fd45959e348be6995f43d8",
+      "query_id": "q001",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 3.5,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "c077bcb813c44291bbff86769436b359",
+      "query_id": "q094",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "c269b08bdefe47d1a38a725bb1b2e2a8",
+      "query_id": "q005",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 5
+      }
+    },
+    {
+      "answer_id": "495bdc7214984c23b5787fe132a08aa5",
+      "query_id": "q070",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 3,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "0520901f4cc74162aaa626e5761e2e63",
+      "query_id": "q078",
+      "variant": "hybrid",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 2,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "0c429f064d4c48c593bd8e085742c4fb",
+      "query_id": "q014",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 2,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "7a6cd79e05484cc392256fe490484280",
+      "query_id": "q015",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 3.5,
+        "context_precision": 3,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "3f317c393ac44baf95675350ab09fb29",
+      "query_id": "q082",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 3.5,
+        "relevance": 3,
+        "context_precision": 2,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "fa0f0be0d2f34c4e806fe7cf6c1498a0",
+      "query_id": "q012",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 3.5,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "15af12e21e3846bcb0640298d1613dd2",
+      "query_id": "q029",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 3,
+        "quality": 4.5
+      }
+    },
+    {
+      "answer_id": "2d3e4ee151e7474592186136c095dbef",
+      "query_id": "q076",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "9ddd5f61db944248b03aecde138a4da9",
+      "query_id": "q078",
+      "variant": "bm25",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4,
+        "context_precision": 2,
+        "quality": 4
+      }
+    },
+    {
+      "answer_id": "5bee9edbcff6412e9a12d9871d0f53ee",
+      "query_id": "q098",
+      "variant": "dense",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 5,
+        "relevance": 4.5,
+        "context_precision": 4,
+        "quality": 3.5
+      }
+    },
+    {
+      "answer_id": "eebc9fecdfc049c3afe5e516189d4f9d",
+      "query_id": "q076",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4,
+        "relevance": 5,
+        "context_precision": 4,
+        "quality": 3
+      }
+    },
+    {
+      "answer_id": "54b7f4ece69b4037a94cbfbad215ee3d",
+      "query_id": "q026",
+      "variant": "hybrid_no_rerank",
+      "annotator_count": 2,
+      "means": {
+        "faithfulness": 4.5,
+        "relevance": 4,
+        "context_precision": 3,
+        "quality": 3
+      }
+    }
+  ],
+  "limitations": [
+    "Human labels are supplied by annotators; the program never invents labels.",
+    "A held-out declaration does not prove independence from training or development.",
+    "Unique counts deduplicate normalized question text, not variants or ratings.",
+    "Means average annotators per answer, then answers per variant; incomplete coverage can bias comparisons.",
+    "Agreement is observed exact label agreement, not evidence of answer correctness or a chance-corrected statistic.",
+    "No dollar cost is inferred; missing token usage is unknown, not zero."
+  ]
+}

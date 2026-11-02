@@ -9,7 +9,10 @@ if (-not $env:HF_HOME) {
 }
 Push-Location $projectRoot
 try {
-    & $python -m streamlit run app.py --server.address 127.0.0.1 @args
+    & $python -m streamlit run app.py `
+    --server.address 127.0.0.1 `
+    --server.fileWatcherType none `
+    @args
     if ($LASTEXITCODE -ne 0) { throw "Streamlit exited with code $LASTEXITCODE" }
 } finally {
     Pop-Location

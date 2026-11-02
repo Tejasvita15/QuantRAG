@@ -1,25 +1,192 @@
-# Python
+# ============================================================
+# Python environments / caches
+# ============================================================
+
 .venv/
+venv/
+env/
+
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
-# Secrets
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ============================================================
+# Secrets / local environment
+# ============================================================
+
 .env
+.env.*
+!.env.example
 
-# Raw / generated data
+*.pem
+*.key
+*.crt
+
+# ============================================================
+# Hugging Face / model caches
+# ============================================================
+
+.cache/
+huggingface/
+**/huggingface/
+
+# ============================================================
+# OS / editor files
+# ============================================================
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+# ============================================================
+# Logs / temporary files
+# ============================================================
+
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# ============================================================
+# Build / distribution
+# ============================================================
+
+dist/
+build/
+*.egg-info/
+
+# ============================================================
+# Raw / processed corpus data
+# Keep large corpus artifacts outside Git
+# ============================================================
+
 data/raw/
 data/processed/
 
-# Generated indexes
+# If you create temporary/download folders later
+data/downloads/
+data/cache/
+
+# ============================================================
+# Generated retrieval indexes
+# These are large and reproducible
+# ============================================================
+
 indexes/
 
-# Evaluation outputs
-eval/five_query_results.json
+# ============================================================
+# General experiment outputs
+# ============================================================
+
+experiments/
 eval/runs/
 eval/experiments/
-experiments/
 
-# OS/editor
-.DS_Store
-.vscode/
-.idea/
+# Recalibration working files are not required in source control
+eval/recalibration/
+
+# ============================================================
+# Five-query benchmark
+# Keep the final lightweight benchmark result
+# ============================================================
+
+!eval/five_query_results.json
+
+# ============================================================
+# Results
+#
+# Ignore everything under results by default because many files
+# are large generated experiment artifacts. Explicitly whitelist
+# the small final summaries needed by teammates/reporting.
+# ============================================================
+
+results/**
+
+# ------------------------------------------------------------
+# Existing lightweight retrieval test outputs
+# ------------------------------------------------------------
+
+!results/hybrid_search_tests.txt
+!results/reranked_search_tests.txt
+
+# ------------------------------------------------------------
+# Final retrieval ablation summaries
+# ------------------------------------------------------------
+
+!results/retrieval-ablation-recalibrated-26074695.pbs101/
+results/retrieval-ablation-recalibrated-26074695.pbs101/*
+!results/retrieval-ablation-recalibrated-26074695.pbs101/summary.csv
+!results/retrieval-ablation-recalibrated-26074695.pbs101/report.md
+!results/retrieval-ablation-recalibrated-26074695.pbs101/manifest.json
+
+# ------------------------------------------------------------
+# Final downstream answer evaluation
+# ------------------------------------------------------------
+
+!results/final-answer-evaluation/
+results/final-answer-evaluation/*
+!results/final-answer-evaluation/human_metrics.json
+
+# ------------------------------------------------------------
+# Final live paired evaluation
+# ------------------------------------------------------------
+
+!results/final-live-paired-study/
+results/final-live-paired-study/*
+!results/final-live-paired-study/live_metrics.json
+
+# Optional: keep the blind review template if useful to teammates
+!results/final-live-paired-study/blind_review.csv
+
+# ============================================================
+# Submission / exported data bundles
+# These may be large and should go to Drive/Dropbox instead.
+# ============================================================
+
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+data-bundle-manifest.json
+/data-bundle-manifest.json
+
+# ============================================================
+# Local Streamlit/runtime artifacts
+# ============================================================
+
+.streamlit/secrets.toml
+
+# Keep normal Streamlit configuration such as config.toml
+# committed to Git.
+# Do NOT add .streamlit/ as a whole to gitignore.
+
+# ============================================================
+# Local database/cache files
+# ============================================================
+
+*.sqlite
+*.sqlite3
+*.db
+
+# ============================================================
+# Jupyter
+# ============================================================
+
+.ipynb_checkpoints/
+
+# ============================================================
+# Miscellaneous generated files
+# ============================================================
+
+*.pid
+*.lock

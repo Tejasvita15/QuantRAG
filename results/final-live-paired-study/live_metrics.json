@@ -1,0 +1,91 @@
+{
+  "human_scores": {
+    "live": {
+      "faithfulness": 4.208333,
+      "relevance": 4.625,
+      "context_precision": 2.791667,
+      "quality": 4.041667
+    },
+    "static": {
+      "faithfulness": 4.416667,
+      "relevance": 3.0,
+      "context_precision": 2.75,
+      "quality": 3.0
+    }
+  },
+  "status_counts": {
+    "live": {
+      "answered": 7,
+      "partial": 5
+    },
+    "static": {
+      "answered": 0,
+      "partial": 12
+    }
+  },
+  "mean_generation_latency_s": {
+    "live": 3.762569,
+    "static": 4.192904
+  },
+  "token_totals": {
+    "live": {
+      "prompt_tokens": 48310,
+      "completion_tokens": 3290,
+      "total_tokens": 51600
+    },
+    "static": {
+      "prompt_tokens": 44464,
+      "completion_tokens": 3832,
+      "total_tokens": 48296
+    }
+  },
+  "mean_live_fetch_latency_s": 1.312017,
+  "paired_live_minus_static": {
+    "faithfulness": {
+      "mean_difference": -0.2083,
+      "improved_queries": 0,
+      "same_queries": 7,
+      "worse_queries": 5
+    },
+    "relevance": {
+      "mean_difference": 1.625,
+      "improved_queries": 12,
+      "same_queries": 0,
+      "worse_queries": 0
+    },
+    "context_precision": {
+      "mean_difference": 0.0417,
+      "improved_queries": 1,
+      "same_queries": 11,
+      "worse_queries": 0
+    },
+    "quality": {
+      "mean_difference": 1.0417,
+      "improved_queries": 12,
+      "same_queries": 0,
+      "worse_queries": 0
+    }
+  },
+  "agreement": {
+    "faithfulness": {
+      "exact_matches": 6,
+      "total": 24,
+      "exact_agreement": 0.25
+    },
+    "relevance": {
+      "exact_matches": 23,
+      "total": 24,
+      "exact_agreement": 0.9583
+    },
+    "context_precision": {
+      "exact_matches": 19,
+      "total": 24,
+      "exact_agreement": 0.7917
+    },
+    "quality": {
+      "exact_matches": 23,
+      "total": 24,
+      "exact_agreement": 0.9583
+    }
+  }
+}
